@@ -1,6 +1,6 @@
 import type { ArtworkId, CaseDefinition, Puzzle, PuzzleAnswer } from './case-definition';
 import { answerMatches } from './content-validation';
-import { bestStars, caseStars, createCaseProgress, finalAvailable, starsForHints } from './game-state';
+import { bestStars, caseStars, completedPuzzleCount, createCaseProgress, finalAvailable, starsForHints } from './game-state';
 import type { CaseProgress, CompletedAttempt, GameState, HintLevel, PuzzleProgress, Stars } from './game-state';
 
 export function isPuzzleDraft(puzzle: Puzzle, draft: unknown): draft is PuzzleAnswer {
@@ -97,5 +97,5 @@ export function canInspectArtwork(state: GameState, definitions: readonly CaseDe
 }
 
 export function currentCaseResult(progress: CaseProgress): Readonly<{ stars: number; completed: number; finalAssisted: boolean }> {
-  return { stars: caseStars(progress), completed: Object.values(progress.puzzles).filter((puzzle) => puzzle.completion).length, finalAssisted: progress.final.outcome === 'assisted' };
+  return { stars: caseStars(progress), completed: completedPuzzleCount(progress), finalAssisted: progress.final.outcome === 'assisted' };
 }
