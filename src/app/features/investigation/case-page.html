@@ -30,7 +30,7 @@
         </div>
         <div class="conclusion-copy">
           <p class="eyebrow">{{ locale.t('conclusion') }}</p>
-          <h2>
+          <h2 #outcomeHeading tabindex="-1">
             {{
               locale.t(progress.final.outcome === 'assisted' ? 'solvedWithAssistance' : 'solved')
             }}
@@ -79,11 +79,22 @@
           <h2>{{ locale.t('everyDetailMatters') }}</h2>
           <p>{{ locale.pick(definition.briefing) }}</p>
           <p class="subtle">{{ locale.pick(definition.introduction) }}</p>
-          <a
-            class="button"
-            [routerLink]="['/cases', definition.id, 'puzzles', definition.puzzles[0].id]"
-            >{{ locale.t(progress.clueOrder.length ? 'resumeCase' : 'startInvestigation') }} →</a
-          >
+          @if (nextPuzzle(); as next) {
+            <a
+              #caseAction
+              class="button"
+              [routerLink]="['/cases', definition.id, 'puzzles', next.id]"
+              >{{ locale.t(progress.clueOrder.length ? 'resumeCase' : 'startInvestigation') }} →</a
+            >
+          } @else {
+            <a
+              #caseAction
+              class="button"
+              [routerLink]="['/cases', definition.id]"
+              fragment="final-identification"
+              >{{ locale.t('finalIdentification') }} →</a
+            >
+          }
           <p class="small-print">
             {{ locale.t('recommendedOrder') }} ·
             {{ locale.t('estimatedDuration', { min: 10, max: 15 }) }}
@@ -136,7 +147,7 @@
       </aside>
     </section>
     @if (finalAvailable(progress, definition) && !progress.final.outcome) {
-      <section class="final-section">
+      <section id="final-identification" class="final-section">
         <div class="section-heading">
           <div>
             <p class="eyebrow">{{ locale.t('finalIdentification') }}</p>
@@ -149,7 +160,7 @@
           }}</span>
         </div>
         @if (lastWrong(); as wrong) {
-          <div class="feedback incorrect" role="status">
+          <div #finalFeedback tabindex="-1" class="feedback incorrect" role="status">
             <strong>{{ locale.t('firstFinalError') }}</strong>
             <p>{{ locale.pick(definition.candidateExplanations[wrong]) }}</p>
           </div>

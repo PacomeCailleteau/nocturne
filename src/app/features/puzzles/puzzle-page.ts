@@ -1,4 +1,15 @@
-import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Injector,
+  afterNextRender,
+  computed,
+  effect,
+  inject,
+  signal,
+  untracked,
+  viewChild,
+} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CASE_BY_ID } from '../../data/cases';
@@ -27,6 +38,8 @@ import { UnavailablePage } from '../../shared/unavailable-page';
   templateUrl: './puzzle-page.html',
 })
 export class PuzzlePage {
+  private readonly injector = inject(Injector);
+  private readonly continuation = viewChild<ElementRef<HTMLAnchorElement>>('continuation');
   readonly locale = inject(LocaleStore);
   readonly game = inject(GameStore);
   readonly repository = inject(ArtworkRepository);
@@ -81,8 +94,17 @@ export class PuzzlePage {
       );
     }
     if (draft !== null) this.game.submitPuzzle(this.definition()!.id, puzzle.id, draft);
+    this.focusContinuation();
+  }
+  private focusContinuation(): void {
+    if (this.progress()?.completion) {
+      afterNextRender(() => this.continuation()?.nativeElement.focus(), {
+        injector: this.injector,
+      });
+    }
   }
   hint(): void {
     this.game.requestHint(this.definition()!.id, this.puzzle()!.id);
+    this.focusContinuation();
   }
 }

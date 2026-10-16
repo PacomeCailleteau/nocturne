@@ -179,8 +179,8 @@ export const DEFINITIONS = [
           "en": "Restore the witness works from earliest to latest creation."
         },
         "instructions": {
-          "fr": "Consultez les bornes numériques objectBeginDate et objectEndDate de l’API du Met, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
-          "en": "Consult the Met API’s numeric objectBeginDate and objectEndDate bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
+          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
+          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
         },
         "witnessIds": [
           437881,
@@ -723,8 +723,8 @@ export const DEFINITIONS = [
           "en": "Restore the witness works from earliest to latest creation."
         },
         "instructions": {
-          "fr": "Consultez les bornes numériques objectBeginDate et objectEndDate de l’API du Met, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
-          "en": "Consult the Met API’s numeric objectBeginDate and objectEndDate bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
+          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
+          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
         },
         "witnessIds": [
           37189,
@@ -1002,8 +1002,8 @@ export const DEFINITIONS = [
         "clue": {
           "id": "ink-materials-clue",
           "text": {
-            "fr": "Le récolement fictif exige une notice dont le champ objectName est exactement « Print ».",
-            "en": "The fictional reconciliation requires a record whose objectName field is exactly “Print”."
+            "fr": "Le récolement fictif exige une notice dont le type d’œuvre est exactement « Print ».",
+            "en": "The fictional reconciliation requires a record whose artwork type is exactly “Print”."
           },
           "predicates": [
             {
@@ -1117,8 +1117,8 @@ export const DEFINITIONS = [
       "en": "The antiquities store closed before reconciliation was finished. An object is missing and a display layout has been erased. A photograph, two tablets and a condition report let you combine dates, materials and arrangement. The reconciliation is fictional; the objects and data come from the Met."
     },
     "introduction": {
-      "fr": "Les années anciennes sont négatives. Les énigmes comparent exclusivement les bornes numériques objectBeginDate et objectEndDate de l’API du Met ; le libellé objectDate du musée reste affiché séparément et peut différer. Il ne faut pas remplacer l’un par l’autre. Un matériau se vérifie dans la notice, pas dans la couleur de l’image.",
-      "en": "Ancient years are negative. Puzzles compare only the Met API’s numeric objectBeginDate and objectEndDate bounds; the museum’s objectDate label remains separately displayed and may differ. Do not substitute one for the other. Verify material in the record, not from image colour."
+      "fr": "Les années anciennes sont négatives. Les énigmes comparent exclusivement les bornes chronologiques documentées ; la datation du musée reste affichée séparément et peut différer. Ces informations ne sont pas interchangeables. Un matériau se vérifie dans la notice, pas dans la couleur de l’image.",
+      "en": "Ancient years are negative. Puzzles compare only the documented chronological bounds; the museum’s date label remains separately displayed and may differ. Do not substitute one for the other. Verify material in the record, not from image colour."
     },
     "difficulty": {
       "fr": "Avancé",
@@ -1279,8 +1279,8 @@ export const DEFINITIONS = [
           "en": "Restore the witness works from earliest to latest creation."
         },
         "instructions": {
-          "fr": "Consultez les bornes numériques objectBeginDate et objectEndDate de l’API du Met, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
-          "en": "Consult the Met API’s numeric objectBeginDate and objectEndDate bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
+          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
+          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
         },
         "witnessIds": [
           544498,

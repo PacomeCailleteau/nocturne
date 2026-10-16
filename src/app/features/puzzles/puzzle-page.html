@@ -63,8 +63,19 @@
               </div>
               <div class="completion-links">
                 @if (nextPuzzle(); as next) {
-                  <a class="button" [routerLink]="['/cases', definition.id, 'puzzles', next.id]"
+                  <a
+                    #continuation
+                    class="button"
+                    [routerLink]="['/cases', definition.id, 'puzzles', next.id]"
                     >{{ locale.t('nextPuzzle') }} →</a
+                  >
+                } @else {
+                  <a
+                    #continuation
+                    class="button"
+                    [routerLink]="['/cases', definition.id]"
+                    fragment="final-identification"
+                    >{{ locale.t('finalIdentification') }} →</a
                   >
                 }
                 <a class="button secondary" [routerLink]="['/cases', definition.id]">{{

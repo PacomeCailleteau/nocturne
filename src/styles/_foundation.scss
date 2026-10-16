@@ -200,6 +200,7 @@ em {
   min-height: 100px;
   padding: 20px clamp(22px, 4.7vw, 76px);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
@@ -248,6 +249,7 @@ em {
 }
 .app-header nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 29px;
 }
@@ -278,6 +280,7 @@ em {
 }
 .header-tools {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 24px;
 }

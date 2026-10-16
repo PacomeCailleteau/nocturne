@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "preview": "ng serve --configuration production --port 4173",
+    "preview": "vite preview --outDir dist/nocturne/browser --host 127.0.0.1 --port 4173 --strictPort",
     "lint": "ng lint",
     "test:assets": "vitest run tests/fixtures/met/corpus-assets.spec.ts",
     "check:api": "node scripts/check-met-api.mjs",
@@ -42,6 +42,7 @@
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
     "typescript-eslint": "8.71.0",
+    "vite": "8.3.4",
     "vitest": "^5.0.0"
   },
   "engines": {

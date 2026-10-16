@@ -1,4 +1,13 @@
-import { Component, computed, inject, input, output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Injector,
+  afterNextRender,
+  computed,
+  inject,
+  input,
+  output,
+} from '@angular/core';
 import { LocaleStore } from '../../core/i18n/locale-store';
 import { ArtworkImage } from '../../shared/artwork-image';
 
@@ -64,6 +73,8 @@ export function completeOrder(
   </ol>`,
 })
 export class OrderControls {
+  private readonly element = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly injector = inject(Injector);
   readonly items = input.required<readonly OrderItem[]>();
   readonly order = input<readonly string[] | null>(null);
   readonly disabled = input(false);
@@ -82,6 +93,19 @@ export class OrderControls {
   move(index: number, direction: number): void {
     const order = this.ordered().map((item) => item.id);
     [order[index], order[index + direction]] = [order[index + direction], order[index]];
+    const movedId = order[index + direction];
     this.orderChange.emit(order);
+    afterNextRender(
+      () => {
+        const row = [
+          ...this.element.nativeElement.querySelectorAll<HTMLElement>('[data-order-id]'),
+        ].find((item) => item.dataset['orderId'] === movedId);
+        const buttons = row?.querySelectorAll<HTMLButtonElement>('button');
+        const preferred = buttons?.[direction < 0 ? 0 : 1];
+        const alternate = buttons?.[direction < 0 ? 1 : 0];
+        (preferred && !preferred.disabled ? preferred : alternate)?.focus();
+      },
+      { injector: this.injector },
+    );
   }
 }

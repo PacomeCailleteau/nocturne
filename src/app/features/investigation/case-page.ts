@@ -1,4 +1,15 @@
-import { Component, computed, effect, inject, signal, untracked, viewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Injector,
+  afterNextRender,
+  computed,
+  effect,
+  inject,
+  signal,
+  untracked,
+  viewChild,
+} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { LocaleStore } from '../../core/i18n/locale-store';
@@ -31,6 +42,13 @@ import { UnavailablePage } from '../../shared/unavailable-page';
   templateUrl: './case-page.html',
 })
 export class CasePage {
+  private readonly injector = inject(Injector);
+  private readonly outcomeHeading = viewChild<ElementRef<HTMLElement>>('outcomeHeading');
+  private readonly finalFeedback = viewChild<ElementRef<HTMLElement>>('finalFeedback');
+  private readonly caseAction = viewChild<ElementRef<HTMLAnchorElement>>('caseAction');
+  readonly nextPuzzle = computed(() =>
+    this.definition()?.puzzles.find((puzzle) => !this.progress()?.puzzles[puzzle.id].completion),
+  );
   readonly locale = inject(LocaleStore);
   readonly game = inject(GameStore);
   readonly repository = inject(ArtworkRepository);
@@ -80,6 +98,9 @@ export class CasePage {
     if (definition && this.selected() !== null)
       this.game.confirmFinal(definition.id, this.selected()!, this.token);
     this.confirmation().close();
+    afterNextRender(() => (this.outcomeHeading() ?? this.finalFeedback())?.nativeElement.focus(), {
+      injector: this.injector,
+    });
   }
 
   openReplay(): void {
@@ -89,5 +110,6 @@ export class CasePage {
     this.game.replayCase(this.definition()!.id);
     this.selected.set(null);
     this.replay().close();
+    afterNextRender(() => this.caseAction()?.nativeElement.focus(), { injector: this.injector });
   }
 }
