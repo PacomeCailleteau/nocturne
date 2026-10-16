@@ -1,0 +1,165 @@
+@if (definition(); as definition) {
+  @if (puzzle(); as puzzle) {
+    @let progress = this.progress(); @let evidence = this.evidence()!;
+    <section class="page puzzle-page" [attr.data-theme]="definition.accent">
+      <a class="breadcrumb" [routerLink]="['/cases', definition.id]"
+        >← {{ locale.pick(definition.title) }}</a
+      >
+      <header class="page-heading">
+        <div>
+          <p class="eyebrow">
+            {{ locale.t('puzzleLabel') }} {{ definition.puzzles.indexOf(puzzle) + 1 }} / 4
+            <span class="fine-line"></span>{{ locale.t('recommendedOrder') }}
+          </p>
+          <h1>{{ locale.pick(puzzle.title) }}</h1>
+          <p class="lead">{{ locale.pick(puzzle.prompt) }}</p>
+        </div>
+        <div class="case-status">
+          <span class="star-display"
+            >{{ progress.completion?.stars ?? (progress.hintLevel ? 2 : 3) }}
+            <span>/ 3 ☆</span></span
+          >
+          <p>{{ locale.t(progress.completion ? 'completed' : 'mastery') }}</p>
+        </div>
+      </header>
+      <div class="investigation-layout">
+        <div class="puzzle-workspace">
+          <div class="instruction-note">
+            <span aria-hidden="true">ⓘ</span>
+            <p>{{ locale.pick(puzzle.instructions) }}</p>
+          </div>
+          <app-puzzle-renderer
+            [puzzle]="puzzle"
+            [evidence]="evidence"
+            [draft]="progress.draft"
+            [disabled]="!!progress.completion"
+            (draftChange)="setDraft($event)"
+          />
+          <div class="puzzle-actions">
+            @if (!progress.completion && supported()) {
+              <button
+                type="button"
+                class="button"
+                (click)="submit()"
+                [disabled]="!progress.draft && puzzle.kind !== 'chronology'"
+              >
+                {{ locale.t('submitAnswer') }} →
+              </button>
+            }
+            @if (progress.feedback === 'incorrect') {
+              <div class="feedback incorrect" role="status">
+                {{ locale.pick(puzzle.wrongAnswer) }}
+                <p>{{ locale.t('answerIncorrect') }}</p>
+              </div>
+            }
+            @if (progress.completion) {
+              <div class="feedback success" role="status">
+                <strong>{{ locale.t('answerCorrect') }}</strong>
+                <p>{{ locale.pick(puzzle.clue.text) }}</p>
+                <span class="star-display">{{ progress.completion.stars }} / 3 ☆</span>
+              </div>
+              <div class="completion-links">
+                @if (nextPuzzle(); as next) {
+                  <a class="button" [routerLink]="['/cases', definition.id, 'puzzles', next.id]"
+                    >{{ locale.t('nextPuzzle') }} →</a
+                  >
+                }
+                <a class="button secondary" [routerLink]="['/cases', definition.id]">{{
+                  locale.t('viewCase')
+                }}</a>
+              </div>
+            }
+          </div>
+        </div>
+        <aside class="evidence-sidebar">
+          <p class="eyebrow">{{ locale.t('documents') }}</p>
+          @for (piece of puzzle.pieces; track piece.id) {
+            <article class="paper-document">
+              <span class="paper-stamp">{{
+                locale.t(
+                  piece.provenance === 'fictional-document' ? 'fictionalDocument' : 'museumRecord'
+                )
+              }}</span>
+              <h2>{{ locale.pick(piece.title) }}</h2>
+              <p>{{ locale.pick(piece.text) }}</p>
+            </article>
+          }
+          <section class="hint-panel">
+            <p class="eyebrow">{{ locale.t('requestHint') }}</p>
+            @if (!progress.completion) {
+              <button type="button" class="hint-button" data-testid="request-hint" (click)="hint()">
+                <span aria-hidden="true">✧</span> {{ locale.t(nextHintKey()) }} →
+              </button>
+              <p class="small-print">
+                {{
+                  locale.t(progress.hintLevel === 2 ? 'hintSolutionCost' : 'hintCost', { count: 2 })
+                }}
+              </p>
+            }
+            @for (hint of puzzle.hints; track $index) {
+              @if ($index < progress.hintLevel) {
+                <p class="hint-text">{{ locale.pick(hint) }}</p>
+              }
+            }
+            @if (progress.completion) {
+              <button
+                type="button"
+                class="text-button"
+                (click)="explanationOpen.set(!explanationOpen())"
+                [attr.aria-expanded]="explanationOpen()"
+              >
+                {{ locale.t('readExplanation') }} {{ explanationOpen() ? '−' : '+' }}
+              </button>
+              @if (explanationOpen()) {
+                <p>{{ locale.pick(puzzle.explanation) }}</p>
+                <p class="small-print">{{ locale.t('earnedStarsFrozen') }}</p>
+              }
+            }
+          </section>
+        </aside>
+      </div>
+      <section class="witness-records">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE MET</p>
+            <h2>{{ locale.t('witnesses') }}</h2>
+          </div>
+          <span class="subtle">{{ locale.t('inspectToCollect') }}</span>
+        </div>
+        <div class="witness-record-grid">
+          @for (id of puzzle.witnessIds; track id) {
+            @let item = evidence.byId.get(id)!;
+            <article class="witness-record">
+              <a class="record-thumbnail" [routerLink]="['/artworks', id]"
+                ><app-artwork-image [artworkId]="id" [compact]="true"
+              /></a>
+              <div>
+                <h3>{{ item.facts.title || locale.t('unknown') }}</h3>
+                <dl class="compact-facts">
+                  <dt>{{ locale.t('artist') }}</dt>
+                  <dd>{{ item.facts.artistDisplayName || locale.t('unknown') }}</dd>
+                  <dt>{{ locale.t('date') }}</dt>
+                  <dd>{{ item.facts.objectDate || locale.t('unknown') }}</dd>
+                  <dt>{{ locale.t('numericDates') }}</dt>
+                  <dd>{{ item.facts.objectBeginDate }} — {{ item.facts.objectEndDate }}</dd>
+                  <dt>{{ locale.t('medium') }}</dt>
+                  <dd>{{ item.facts.medium || locale.t('unknown') }}</dd>
+                </dl>
+                <app-source-status [evidence]="item" /><a
+                  class="text-button"
+                  [routerLink]="['/artworks', id]"
+                  >{{ locale.t('examineArtwork') }} ↗</a
+                >
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+      <app-puzzle-navigation [definition]="definition" />
+    </section>
+  } @else {
+    <app-unavailable-page />
+  }
+} @else {
+  <app-unavailable-page />
+}

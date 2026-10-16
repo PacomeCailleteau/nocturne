@@ -1,1 +1,67 @@
-<main><p class="eyebrow">Les enqu�tes du mus�e</p><h1>Nocturne</h1><p>Trois affaires. Une collection de secrets.</p></main>
+<a class="skip-link" href="#main-content" (click)="skipToContent($event)">{{
+  locale.t('skipToContent')
+}}</a>
+<header class="app-header">
+  <a class="brand" routerLink="/" aria-label="Nocturne"
+    ><span class="brand-mark" aria-hidden="true">N</span
+    ><span
+      >NOCTURNE<small>{{ locale.t('appSubtitle') }}</small></span
+    ></a
+  >
+  <nav [class.is-open]="menuOpen()" [attr.aria-label]="locale.t('home')">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{
+      locale.t('home')
+    }}</a>
+    <a routerLink="/notebook" routerLinkActive="active">{{ locale.t('notebook') }}</a>
+    <button type="button" (click)="rules.open()">{{ locale.t('rules') }}</button>
+  </nav>
+  <div class="header-tools">
+    <span class="save-status"
+      ><i aria-hidden="true"></i
+      >{{ locale.t(storage.available() ? 'savedLocally' : 'memoryOnly') }}</span
+    >
+    <button
+      type="button"
+      class="language-button"
+      data-testid="language-toggle"
+      [attr.aria-label]="locale.t('switchLanguage')"
+      (click)="locale.toggle()"
+    >
+      <span [class.chosen]="locale.language() === 'fr'">FR</span><span aria-hidden="true">/</span
+      ><span [class.chosen]="locale.language() === 'en'">EN</span>
+    </button>
+    <button
+      type="button"
+      class="menu-toggle icon-button"
+      [attr.aria-label]="locale.t(menuOpen() ? 'closeMenu' : 'openMenu')"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="menuOpen.set(!menuOpen())"
+    >
+      {{ menuOpen() ? '×' : '☰' }}
+    </button>
+  </div>
+</header>
+@if (!storage.available()) {
+  <p class="global-notice" role="status">{{ locale.t('storageUnavailable') }}</p>
+}
+@if (storage.restored.discarded) {
+  <p class="global-notice" role="status">{{ locale.t('progressRecovered') }}</p>
+}
+<main id="main-content" tabindex="-1"><router-outlet /></main>
+<footer class="app-footer">
+  <span>NOCTURNE <span aria-hidden="true">·</span> {{ locale.t('appSubtitle') }}</span
+  ><span
+    >{{ locale.t('realArtFictionalCases') }}
+    <a href="https://www.metmuseum.org/art/collection" target="_blank" rel="noopener noreferrer"
+      >The Met ↗</a
+    ></span
+  >
+</footer>
+<app-dialog #rules [heading]="locale.t('rules')"
+  ><p class="eyebrow">NOCTURNE</p>
+  <ol class="rules-list">
+    @for (key of ruleKeys; track key) {
+      <li>{{ locale.t(key) }}</li>
+    }
+  </ol></app-dialog
+>

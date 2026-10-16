@@ -1,0 +1,123 @@
+<section class="page notebook-page">
+  <header class="page-heading">
+    <div>
+      <p class="eyebrow">{{ locale.t('personalArchive') }}</p>
+      <h1>{{ locale.t('notebook') }}</h1>
+      <p class="lead">{{ locale.t('notebookIntroduction') }}</p>
+    </div>
+    <span class="notebook-count"
+      >{{ game.discoveries().length }}<small>{{ locale.t('discoveries') }}</small></span
+    >
+  </header>
+  <nav class="section-tabs" [attr.aria-label]="locale.t('notebook')">
+    <a routerLink="/notebook" fragment="discoveries">{{ locale.t('discoveries') }}</a
+    ><a routerLink="/notebook" fragment="progress">{{ locale.t('caseProgress') }}</a>
+  </nav>
+  <section id="discoveries">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">
+          {{ locale.t('discoveredCount', { count: game.discoveries().length }) }}
+        </p>
+        <h2>{{ locale.t('discoveries') }}</h2>
+      </div>
+    </div>
+    @if (game.discoveries().length) {
+      <div class="notebook-filters">
+        <label
+          ><span>{{ locale.t('searchDiscoveries') }}</span
+          ><input
+            type="search"
+            [value]="query()"
+            (input)="search($event)"
+            [placeholder]="locale.t('searchPlaceholder')" /></label
+        ><label
+          ><span>{{ locale.t('objectType') }}</span
+          ><select [value]="type()" (change)="filterType($event)">
+            <option value="">{{ locale.t('showAll') }}</option>
+            @for (type of types(); track type) {
+              <option [value]="type">{{ type }}</option>
+            }
+          </select></label
+        >
+      </div>
+      <div class="notebook-artworks">
+        @for (item of filtered(); track item.id) {
+          <a class="notebook-artwork" [routerLink]="['/artworks', item.id]"
+            ><div class="notebook-artwork-image"><app-artwork-image [artworkId]="item.id" /></div>
+            <div class="notebook-artwork-copy">
+              @if (item.record.artwork; as artwork) {
+                <p class="eyebrow">{{ artwork.objectName || locale.t('unknown') }}</p>
+                <h3>{{ artwork.title || locale.t('unknown') }}</h3>
+                <p>{{ artwork.artistDisplayName || locale.t('unknown') }}</p>
+                <span class="subtle">{{ artwork.objectDate || locale.t('unknown') }}</span
+                ><span class="source-status">{{
+                  locale.t(
+                    item.record.provenance?.kind === 'live' ? 'sourceLive' : 'sourceFallback',
+                    { date: item.record.provenance?.retrievedAt?.slice(0, 10) ?? '' }
+                  )
+                }}</span>
+              } @else {
+                <h3>
+                  {{
+                    locale.t(item.record.status === 'unavailable' ? 'imageUnavailable' : 'loading')
+                  }}
+                </h3>
+              }
+              <span class="text-button">{{ locale.t('artworkDetails') }} ↗</span>
+            </div></a
+          >
+        }
+      </div>
+      @if (!filtered().length) {
+        <p class="empty-copy" role="status">{{ locale.t('noSearchResults') }}</p>
+      }
+    } @else {
+      <div class="empty-state">
+        <span class="ornament" aria-hidden="true">◇</span>
+        <h3>{{ locale.t('notebookEmpty') }}</h3>
+        <p>{{ locale.t('inspectToCollect') }}</p>
+        <a class="button secondary" routerLink="/">{{ locale.t('backToCases') }} →</a>
+      </div>
+    }
+  </section>
+  <section class="notebook-progress" id="progress">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">{{ locale.t('dossier') }}</p>
+        <h2>{{ locale.t('caseProgress') }}</h2>
+      </div>
+    </div>
+    @for (definition of cases; track definition.id) {
+      @let progress = game.state().cases[definition.id];
+      <article class="notebook-case" [attr.data-theme]="definition.accent">
+        <div class="notebook-case-heading">
+          <h3>
+            <a [routerLink]="['/cases', definition.id]">{{ locale.pick(definition.title) }} ↗</a>
+          </h3>
+          <span class="star-display">{{ caseStars(progress) }} / 12 ☆</span>
+        </div>
+        <p class="subtle">
+          {{ locale.t('progress', { completed: completedPuzzleCount(progress), total: 4 }) }} ·
+          {{ locale.t('attempt', { count: progress.attemptNumber }) }}
+        </p>
+        @if (progress.best) {
+          <p class="small-print">
+            {{ locale.t('bestResult') }} : {{ bestStars(progress.best) }}/12 ·
+            {{ locale.t(progress.best.finalAssisted ? 'solvedWithAssistance' : 'solved') }}
+          </p>
+        }
+        <ul class="notebook-clues">
+          @for (puzzle of definition.puzzles; track puzzle.id) {
+            @if (progress.puzzles[puzzle.id].completion) {
+              <li><span aria-hidden="true">◇</span>{{ locale.pick(puzzle.clue.text) }}</li>
+            }
+          }
+        </ul>
+        @if (!progress.clueOrder.length) {
+          <p class="small-print">{{ locale.t('noClues') }}</p>
+        }
+      </article>
+    }
+  </section>
+</section>

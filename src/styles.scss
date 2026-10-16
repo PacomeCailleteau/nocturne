@@ -1,3 +1,4 @@
-html { color-scheme: dark; background: #101713; color: #f3edde; font-family: Arial, sans-serif; }
-body { margin: 0; }
-* { box-sizing: border-box; }
+@use './styles/fonts';
+@use './styles/foundation';
+@use './styles/gallery';
+@use './styles/investigation';

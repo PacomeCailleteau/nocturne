@@ -1,0 +1,131 @@
+@let puzzle = this.puzzle();
+@switch (puzzle.kind) {
+  @case ('fragment') {
+    <div class="fragment-board">
+      <figure class="fragment-paper">
+        <span class="paper-stamp">{{ locale.t('recoveredEvidence') }} / 01</span
+        ><img [src]="puzzle.fragment.path" [alt]="locale.pick(puzzle.fragment.alt)" />
+        <figcaption>{{ locale.pick(puzzle.fragment.observation) }}</figcaption>
+      </figure>
+      <div class="fragment-question">
+        <span class="ornament" aria-hidden="true">⌕</span>
+        <h2>{{ locale.t('lookAtTheDetails') }}</h2>
+        <p>{{ locale.t('fragmentTask') }}</p>
+      </div>
+    </div>
+    <div class="section-line">
+      <strong>{{ locale.t('witnesses') }}</strong
+      ><span>{{ locale.t('chooseOneArtwork') }}</span>
+    </div>
+    <div class="witness-choices">
+      @for (option of puzzle.options; track option.id; let index = $index) {
+        <button
+          type="button"
+          class="witness-choice"
+          [class.selected]="draft() === option.id"
+          [attr.aria-pressed]="draft() === option.id"
+          [attr.data-choice-id]="option.id"
+          [disabled]="disabled()"
+          (click)="draftChange.emit(option.id)"
+        >
+          <span class="choice-number">0{{ index + 1 }}</span
+          ><app-artwork-image [artworkId]="option.artworkId" /><span class="witness-choice-copy"
+            ><strong>{{ evidence().byId.get(option.artworkId)?.facts?.title }}</strong
+            ><small>{{ locale.pick(option.observation) }}</small
+            ><span class="choice-radio" aria-hidden="true">{{
+              draft() === option.id ? '●' : '○'
+            }}</span></span
+          >
+        </button>
+      }
+    </div>
+  }
+  @case ('chronology') {
+    <div class="puzzle-section-heading">
+      <h2>{{ locale.t('restoreTheOrder') }}</h2>
+      <p>{{ locale.t('chronologyControls') }}</p>
+    </div>
+    <app-order-controls
+      [items]="chronologyItems()"
+      [order]="arrayDraft()"
+      [disabled]="disabled()"
+      (orderChange)="draftChange.emit($event)"
+    />
+  }
+  @case ('contradiction') {
+    <div class="puzzle-section-heading">
+      <h2>{{ locale.t('findTheContradiction') }}</h2>
+      <p>{{ locale.t('contradictionControls') }}</p>
+    </div>
+    <div class="statement-list">
+      @for (statement of puzzle.statements; track statement.id; let index = $index) {
+        <button
+          type="button"
+          class="statement"
+          [class.selected]="draft() === statement.id"
+          [attr.aria-pressed]="draft() === statement.id"
+          [attr.data-choice-id]="statement.id"
+          [disabled]="disabled()"
+          (click)="draftChange.emit(statement.id)"
+        >
+          <span class="statement-index">0{{ index + 1 }}</span
+          ><span>{{ locale.pick(statement.text) }}</span
+          ><span class="choice-radio" aria-hidden="true">{{
+            draft() === statement.id ? '●' : '○'
+          }}</span>
+        </button>
+      }
+    </div>
+  }
+  @case ('torn-label') {
+    <div class="puzzle-section-heading">
+      <h2>{{ locale.t('restoreTheLabel') }}</h2>
+      <p>{{ locale.t('labelControls') }}</p>
+    </div>
+    <div class="label-template">
+      @for (role of puzzle.template; track role; let index = $index) {
+        <span>{{ index + 1 }} · {{ roleLabel(role) }}</span>
+      }
+    </div>
+    <div class="label-assembly">
+      <div class="paper-stamp">{{ locale.t('museumLabel') }}</div>
+      @if (labelItems().length) {
+        <app-order-controls
+          [items]="labelItems()"
+          [order]="arrayDraft()"
+          [disabled]="disabled()"
+          (orderChange)="draftChange.emit($event)"
+        />
+      } @else {
+        <p class="empty-copy">{{ locale.t('labelEmpty') }}</p>
+      }
+      <div class="label-bank">
+        @for (fragment of puzzle.fragments; track fragment.id) {
+          <button
+            type="button"
+            [attr.data-fragment-id]="fragment.id"
+            [disabled]="disabled() || (arrayDraft() ?? []).includes(fragment.id)"
+            (click)="addFragment(fragment.id)"
+          >
+            {{ locale.pick(fragment.text) }} <span aria-hidden="true">＋</span>
+          </button>
+        }
+      </div>
+      @if (!disabled() && labelItems().length) {
+        <div class="label-remove">
+          @for (item of labelItems(); track item.id) {
+            <button type="button" class="text-button" (click)="removeFragment(item.id)">
+              {{ locale.t('remove') }} : {{ item.label }} ×
+            </button>
+          }
+        </div>
+        <button type="button" class="text-button" (click)="draftChange.emit([])">
+          {{ locale.t('resetAnswer') }} ↻
+        </button>
+      }
+    </div>
+  }
+  @default {
+    <p class="empty-copy">{{ locale.t('distinctivePuzzleNotice') }}</p>
+  }
+}

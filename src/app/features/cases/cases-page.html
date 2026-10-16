@@ -1,0 +1,97 @@
+<section class="home-hero page">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="fine-line"></span>{{ locale.t('afterHours') }}</p>
+    <h1>
+      {{ locale.t('homeHeadlineFirst') }}<br /><em>{{ locale.t('homeHeadlineLast') }}</em>
+    </h1>
+    <p class="hero-description">{{ locale.t('homeDescription') }}</p>
+    <a class="button" [routerLink]="['/cases', cases[0].id]"
+      >{{
+        locale.t(
+          game.state().cases[cases[0].id].clueOrder.length ? 'resumeCase' : 'startInvestigation'
+        )
+      }}
+      <span aria-hidden="true">↗</span></a
+    >
+    <p class="hero-footnote">{{ locale.t('homeFootnote') }}</p>
+  </div>
+  <div class="hero-gallery" aria-hidden="true">
+    <div class="hero-wall-number">01 / 03</div>
+    <div class="hero-main-frame artwork-frame">
+      <app-artwork-image [artworkId]="436964" [eager]="true" [localOnly]="true" />
+    </div>
+    <div class="hero-small-frame artwork-frame">
+      <app-artwork-image [artworkId]="437881" [eager]="true" [localOnly]="true" />
+    </div>
+    <div class="gallery-plaque">
+      <span>ÉDOUARD MANET</span><i>Young Lady in 1866</i
+      ><span>1866 · THE METROPOLITAN MUSEUM OF ART</span>
+    </div>
+    <span class="gallery-caption">{{ locale.t('lookCloser') }}</span>
+  </div>
+</section>
+<section class="cases-section page" aria-labelledby="cases-heading">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">{{ locale.t('chooseYourCase') }}</p>
+      <h2 id="cases-heading">{{ locale.t('threeCasesTitle') }}</h2>
+    </div>
+    <p>{{ locale.t('allCasesOpen') }}</p>
+  </div>
+  <div class="case-cards">
+    @for (definition of cases; track definition.id; let index = $index) {
+      @let progress = game.state().cases[definition.id];
+      <a
+        class="case-card"
+        [attr.data-theme]="definition.accent"
+        [routerLink]="['/cases', definition.id]"
+        ><div class="case-card-image">
+          <app-artwork-image
+            [artworkId]="definition.coverArtworkId"
+            [cover]="true"
+            [localOnly]="true"
+          /><span class="case-number">0{{ index + 1 }}</span
+          ><span class="difficulty-chip">{{ locale.pick(definition.difficulty) }}</span>
+        </div>
+        <div class="case-card-copy">
+          <p class="eyebrow">
+            {{ locale.t('caseLabel') }} 0{{ index + 1 }}
+            <span
+              >·
+              {{
+                locale.t('estimatedDuration', {
+                  min: definition.estimatedMinutes[0],
+                  max: definition.estimatedMinutes[1],
+                })
+              }}</span
+            >
+          </p>
+          <h3>{{ locale.pick(definition.title) }}</h3>
+          <p>{{ locale.pick(definition.subtitle) }}</p>
+          <div class="case-card-bottom">
+            <span
+              >{{
+                locale.t(
+                  progress.final.outcome
+                    ? 'solved'
+                    : progress.clueOrder.length
+                      ? 'resumeCase'
+                      : 'beginCase'
+                )
+              }}
+              <span aria-hidden="true">↗</span></span
+            ><span class="subtle"
+              >{{ completedPuzzleCount(progress) }}/4 <span aria-hidden="true">·</span>
+              {{ caseStars(progress) }}/12 ☆</span
+            >
+          </div>
+        </div></a
+      >
+    }
+  </div>
+</section>
+<section class="home-invitation page">
+  <span class="ornament" aria-hidden="true">◇</span>
+  <p>{{ locale.t('homeInvitation') }}</p>
+  <span class="eyebrow">{{ locale.t('noKnowledgeNeeded') }}</span>
+</section>

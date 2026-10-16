@@ -1,0 +1,95 @@
+<section class="page artwork-page">
+  @if (eligible()) {
+    @let record = this.record()!;
+    <a class="breadcrumb" routerLink="/notebook">← {{ locale.t('notebook') }}</a>
+    @if (record.artwork; as artwork) {
+      <header class="page-heading">
+        <div>
+          <p class="eyebrow">
+            THE METROPOLITAN MUSEUM OF ART <span class="fine-line"></span>
+            {{ locale.t('artworkDetails') }}
+          </p>
+          <h1>{{ artwork.title || locale.t('unknown') }}</h1>
+          <p class="lead">{{ artwork.artistDisplayName || locale.t('unknown') }}</p>
+        </div>
+      </header>
+      <div class="artwork-detail-layout">
+        <div class="artwork-detail-gallery">
+          <div class="gallery-stage">
+            <div class="artwork-frame"><app-artwork-image [artworkId]="id()" [eager]="true" /></div>
+            <button type="button" class="zoom-button" (click)="zoom.open()">
+              {{ locale.t('enlargeImage') }} ⤢
+            </button>
+          </div>
+          <p class="small-print">
+            {{ artwork.creditLine || locale.t('unknown') }} ·
+            {{ artwork.isPublicDomain ? locale.t('publicDomain') : locale.t('unknown') }}
+          </p>
+        </div>
+        <div class="artwork-detail-copy">
+          <div class="source-status" [class.reference-notice]="record.provenance?.kind !== 'live'">
+            @if (record.provenance?.kind === 'live') {
+              <span class="source-dot"></span>{{ locale.t('sourceLive') }}
+            } @else {
+              <p>
+                {{
+                  locale.t('sourceFallback', {
+                    date: record.provenance?.retrievedAt?.slice(0, 10) ?? '',
+                  })
+                }}
+              </p>
+              <p>{{ locale.t('sourceFallbackExplanation') }}</p>
+              <button type="button" class="text-button" (click)="repository.retry(id())">
+                {{ locale.t('retry') }} ↻
+              </button>
+            }
+          </div>
+          <dl class="artwork-facts">
+            @for (field of fields; track field.key) {
+              <div>
+                <dt>{{ locale.t(field.label) }}</dt>
+                <dd>{{ artwork[field.key] || locale.t('unknown') }}</dd>
+              </div>
+            }
+            <div>
+              <dt>{{ locale.t('numericDates') }}</dt>
+              <dd>
+                {{ artwork.objectBeginDate ?? locale.t('unknown') }} —
+                {{ artwork.objectEndDate ?? locale.t('unknown') }}
+              </dd>
+            </div>
+          </dl>
+          @if (artwork.objectURL; as url) {
+            <a class="button secondary" [href]="url" target="_blank" rel="noopener noreferrer"
+              >{{ locale.t('originalSource') }} ↗</a
+            >
+          }
+          @if (relatedCase(); as definition) {
+            <a class="text-button" [routerLink]="['/cases', definition.id]"
+              >← {{ locale.pick(definition.title) }}</a
+            >
+          }
+        </div>
+      </div>
+      <app-dialog #zoom [heading]="artwork.title || locale.t('artworkDetails')"
+        ><div class="zoom-art"><app-artwork-image [artworkId]="id()" [eager]="true" /></div
+      ></app-dialog>
+    } @else {
+      <div class="empty-state" role="status">
+        <span class="ornament" aria-hidden="true">◇</span>
+        <h1>{{ locale.t(record.status === 'unavailable' ? 'artworkUnavailable' : 'loading') }}</h1>
+        @if (record.status === 'unavailable') {
+          <button type="button" class="button secondary" (click)="repository.retry(id())">
+            {{ locale.t('retry') }} ↻
+          </button>
+        }
+      </div>
+    }
+  } @else {
+    <div class="empty-state">
+      <span class="ornament" aria-hidden="true">◇</span>
+      <h1>{{ locale.t('unavailableArtwork') }}</h1>
+      <a class="button secondary" routerLink="/">{{ locale.t('backToCases') }} →</a>
+    </div>
+  }
+</section>

@@ -1,4 +1,48 @@
 export const FR = {
+  savedLocally: 'Progression sauvegardée',
+  memoryOnly: 'Partie en mémoire',
+  realArtFictionalCases: 'Des œuvres réelles. Des mystères imaginés.',
+  localImageCopy: 'Reproduction locale de secours',
+  afterHours: 'Le musée ferme. L’enquête commence.',
+  homeHeadlineFirst: 'L’art a ses secrets.',
+  homeHeadlineLast: 'À vous de les révéler.',
+  homeDescription:
+    'Poussez les portes d’un musée après la nuit tombée. Observez les œuvres, rassemblez les indices et retrouvez ce qui manque au tableau.',
+  homeFootnote: '3 enquêtes ouvertes · Sans chronomètre · Sans compte',
+  lookCloser: 'Tout commence par un regard.',
+  chooseYourCase: 'Votre prochaine enquête',
+  threeCasesTitle: 'Trois affaires. Mille détails.',
+  allCasesOpen: 'Toutes les salles vous sont ouvertes.',
+  homeInvitation:
+    'Un détail oublié. Une date qui ne concorde pas. Parfois, il suffit de regarder autrement.',
+  noKnowledgeNeeded: 'Votre curiosité suffit. Aucune connaissance en art requise.',
+  witnessLabel: 'Œuvre témoin · Collection du Met',
+  everyDetailMatters: 'Chaque détail compte.',
+  whichWorkIsMissing: 'Quelle œuvre manque à l’appel ?',
+  recoveredEvidence: 'Pièce retrouvée',
+  lookAtTheDetails: 'Regarder, puis regarder encore.',
+  fragmentTask:
+    'Un fragment, trois œuvres. Repérez les formes, les gestes et les objets qui se répondent.',
+  chooseOneArtwork: 'Choisissez une œuvre',
+  restoreTheOrder: 'Remettre le temps à sa place.',
+  chronologyControls:
+    'Utilisez les flèches pour déplacer chaque carte. Les dates restent consultables dans les fiches témoins.',
+  findTheContradiction: 'Un rapport ne dit pas toute la vérité.',
+  contradictionControls:
+    'Comparez chaque affirmation aux fiches témoins ci-dessous, puis choisissez celle qui les contredit.',
+  restoreTheLabel: 'Quatre fragments. Un cartel.',
+  labelControls:
+    'Ajoutez les fragments, puis ajustez leur place avec les flèches. Vous pouvez retirer un fragment à tout moment.',
+  museumLabel: 'Cartel du musée',
+  labelEmpty: 'Les fragments que vous choisissez prendront place ici.',
+  distinctivePuzzleNotice: 'Cette table est en cours de préparation.',
+  nextPuzzle: 'Explorer l’épreuve suivante',
+  inspectToCollect: 'Examinez volontairement une œuvre pour l’ajouter à votre carnet.',
+  personalArchive: 'Votre mémoire de l’enquête',
+  searchDiscoveries: 'Rechercher dans mes découvertes',
+  searchPlaceholder: 'Un titre, un artiste, un matériau…',
+  noSearchResults: 'Aucune œuvre ne correspond à cette recherche.',
+  artworkUnavailable: 'La fiche est momentanément indisponible',
   appName: 'Nocturne',
   appSubtitle: 'Les enquêtes du musée',
   home: 'Les affaires',
@@ -52,16 +96,19 @@ export const FR = {
   publicDomain: 'Domaine public',
   sourceLive: 'Données du Met',
   sourceFallback: 'Copie de secours du {date}',
-  sourceFallbackExplanation: 'La fiche du Met n’est pas disponible. Cette copie datée vous permet de poursuivre.',
+  sourceFallbackExplanation:
+    'La fiche du Met n’est pas disponible. Cette copie datée vous permet de poursuivre.',
   sourceReference: 'Référence de l’enquête du {date}',
-  sourceReferenceExplanation: 'La fiche actuelle a changé. Les pièces et les raisonnements de cette enquête utilisent leur référence datée.',
+  sourceReferenceExplanation:
+    'La fiche actuelle a changé. Les pièces et les raisonnements de cette enquête utilisent leur référence datée.',
   currentMuseumRecord: 'Fiche actuelle du musée',
   retry: 'Réessayer',
   loading: 'Chargement…',
   submitAnswer: 'Vérifier ma réponse',
   selectAnswer: 'Choisir une réponse',
   answerCorrect: 'Épreuve résolue. Un nouvel indice rejoint le dossier.',
-  answerIncorrect: 'Cette réponse ne correspond pas aux pièces du dossier. Réessayez sans perdre d’étoiles.',
+  answerIncorrect:
+    'Cette réponse ne correspond pas aux pièces du dossier. Réessayez sans perdre d’étoiles.',
   completed: 'Terminée',
   notStarted: 'À explorer',
   inProgress: 'En cours',
@@ -92,9 +139,11 @@ export const FR = {
   selectCandidate: 'Retenir cette œuvre',
   confirmCandidate: 'Confirmer cette identification',
   confirmationTitle: 'Est-ce votre conclusion ?',
-  confirmationText: 'Cette confirmation utilise une tentative finale. Vous pouvez encore réexaminer vos indices.',
+  confirmationText:
+    'Cette confirmation utilise une tentative finale. Vous pouvez encore réexaminer vos indices.',
   cancel: 'Réexaminer le dossier',
-  firstFinalError: 'Cette œuvre contredit au moins un indice. Consultez l’explication ci-dessous et réexaminez votre dossier.',
+  firstFinalError:
+    'Cette œuvre contredit au moins un indice. Consultez l’explication ci-dessous et réexaminez votre dossier.',
   solved: 'Affaire résolue',
   solvedWithAssistance: 'Affaire résolue avec assistance finale',
   finalAssistanceNote: 'L’assistance finale ne modifie pas les étoiles de vos épreuves.',
@@ -102,42 +151,98 @@ export const FR = {
   seeResult: 'Voir le bilan',
   replay: 'Rejouer cette affaire',
   replayTitle: 'Ouvrir une nouvelle tentative ?',
-  replayText: 'Les réponses, aides et indices de la tentative actuelle seront effacés. Vos découvertes et votre meilleur bilan complet resteront dans le carnet.',
+  replayText:
+    'Les réponses, aides et indices de la tentative actuelle seront effacés. Vos découvertes et votre meilleur bilan complet resteront dans le carnet.',
   replayConfirm: 'Commencer une nouvelle tentative',
   keepAttempt: 'Conserver cette tentative',
   notebookEmpty: 'Votre première observation attend dans les salles du musée.',
-  notebookIntroduction: 'Les œuvres que vous examinez, les indices que vous gagnez et vos bilans se retrouvent ici.',
+  notebookIntroduction:
+    'Les œuvres que vous examinez, les indices que vous gagnez et vos bilans se retrouvent ici.',
   discoveredCount: '{count} œuvres découvertes',
   discoveries: 'Mes découvertes',
   caseProgress: 'Mes enquêtes',
   showAll: 'Tout afficher',
   chronology: 'Repères chronologiques',
   chronologyLocked: 'Résolvez l’épreuve de chronologie de cette affaire pour ouvrir sa frise.',
-  chronologyScope: 'Œuvres témoins de cette affaire : {count}. Les intervalles utilisent les bornes numériques du Met.',
+  chronologyScope:
+    'Œuvres témoins de cette affaire : {count}. Les intervalles utilisent les bornes numériques du Met.',
   artworkDistribution: 'Répartition des découvertes',
   candidateEvolution: 'La piste se précise',
-  candidateEvolutionDescription: 'Nombre de candidates compatibles avec les indices, dans leur ordre d’obtention.',
+  candidateEvolutionDescription:
+    'Nombre de candidates compatibles avec les indices, dans leur ordre d’obtention.',
   starsByPuzzle: 'Étoiles par épreuve',
   chartTextAlternative: 'Consulter les valeurs',
   noData: 'Pas encore de données pour cette analyse.',
   sampleSize: 'Échantillon : {count} œuvres',
   allCases: 'Toutes les affaires',
-  storageUnavailable: 'La sauvegarde est indisponible dans ce navigateur. Vous pouvez jouer, mais cette progression ne sera pas conservée après la fermeture.',
-  progressRecovered: 'Une partie de la sauvegarde ne correspondait plus aux dossiers. Les données valides ont été conservées.',
+  storageUnavailable:
+    'La sauvegarde est indisponible dans ce navigateur. Vous pouvez jouer, mais cette progression ne sera pas conservée après la fermeture.',
+  progressRecovered:
+    'Une partie de la sauvegarde ne correspondait plus aux dossiers. Les données valides ont été conservées.',
   unavailablePage: 'Cette page n’est pas disponible',
   unavailableArtwork: 'Cette œuvre n’est pas encore consultable dans votre enquête.',
-  ruleOpen: 'Les trois affaires et leurs quatre épreuves sont ouvertes. Suivez l’ordre conseillé ou explorez librement.',
-  ruleStars: 'Chaque épreuve vaut trois étoiles sans aide, deux après une orientation ou un indice précis, une avec la résolution expliquée.',
-  ruleErrors: 'Les erreurs d’épreuve et le temps ne retirent aucune étoile. Vos étoiles sont figées à la résolution.',
-  ruleFinal: 'Après les quatre épreuves, identifiez l’œuvre grâce à vos indices. Vous disposez de deux confirmations finales.',
-  ruleAssistance: 'La première erreur finale révèle une contradiction. Après la seconde, la conclusion guidée explique le raisonnement sans modifier vos étoiles.',
-  ruleSave: 'Votre progression est sauvegardée dans ce navigateur. Rejouer conserve les découvertes et le meilleur bilan d’une tentative complète.',
-  ruleMuseum: 'Les œuvres et leurs fiches viennent du Metropolitan Museum of Art. Les intrigues et documents de l’enquête sont fictifs.',
+  ruleOpen:
+    'Les trois affaires et leurs quatre épreuves sont ouvertes. Suivez l’ordre conseillé ou explorez librement.',
+  ruleStars:
+    'Chaque épreuve vaut trois étoiles sans aide, deux après une orientation ou un indice précis, une avec la résolution expliquée.',
+  ruleErrors:
+    'Les erreurs d’épreuve et le temps ne retirent aucune étoile. Vos étoiles sont figées à la résolution.',
+  ruleFinal:
+    'Après les quatre épreuves, identifiez l’œuvre grâce à vos indices. Vous disposez de deux confirmations finales.',
+  ruleAssistance:
+    'La première erreur finale révèle une contradiction. Après la seconde, la conclusion guidée explique le raisonnement sans modifier vos étoiles.',
+  ruleSave:
+    'Votre progression est sauvegardée dans ce navigateur. Rejouer conserve les découvertes et le meilleur bilan d’une tentative complète.',
+  ruleMuseum:
+    'Les œuvres et leurs fiches viennent du Metropolitan Museum of Art. Les intrigues et documents de l’enquête sont fictifs.',
 } as const;
 
 export type TranslationKey = keyof typeof FR;
 
 export const EN = {
+  savedLocally: 'Progress saved',
+  memoryOnly: 'In-memory session',
+  realArtFictionalCases: 'Real artworks. Imagined mysteries.',
+  localImageCopy: 'Local backup reproduction',
+  afterHours: 'The museum closes. The investigation begins.',
+  homeHeadlineFirst: 'Art has its secrets.',
+  homeHeadlineLast: 'Yours to uncover.',
+  homeDescription:
+    'Step into a museum after dark. Observe the artworks, gather the clues and discover what is missing from the picture.',
+  homeFootnote: '3 open cases · No timer · No account',
+  lookCloser: 'It all begins with a closer look.',
+  chooseYourCase: 'Your next investigation',
+  threeCasesTitle: 'Three cases. A thousand details.',
+  allCasesOpen: 'Every gallery is open to you.',
+  homeInvitation:
+    'An overlooked detail. A date that does not fit. Sometimes, all it takes is a different way of looking.',
+  noKnowledgeNeeded: 'Bring your curiosity. No art knowledge required.',
+  witnessLabel: 'Witness artwork · The Met collection',
+  everyDetailMatters: 'Every detail matters.',
+  whichWorkIsMissing: 'Which artwork is missing?',
+  recoveredEvidence: 'Recovered evidence',
+  lookAtTheDetails: 'Look. Then look again.',
+  fragmentTask: 'One fragment, three works. Find the shapes, gestures and objects that match.',
+  chooseOneArtwork: 'Choose one artwork',
+  restoreTheOrder: 'Put time back in its place.',
+  chronologyControls:
+    'Use the arrows to move each card. Dates remain available in the witness records.',
+  findTheContradiction: 'One report is not telling the whole truth.',
+  contradictionControls:
+    'Compare each statement with the witness records below, then choose the statement that contradicts them.',
+  restoreTheLabel: 'Four fragments. One label.',
+  labelControls:
+    'Add the fragments, then use the arrows to adjust their positions. You can remove a fragment at any time.',
+  museumLabel: 'Museum label',
+  labelEmpty: 'Your chosen fragments will take their places here.',
+  distinctivePuzzleNotice: 'This desk is being prepared.',
+  nextPuzzle: 'Explore the next puzzle',
+  inspectToCollect: 'Deliberately examine an artwork to add it to your notebook.',
+  personalArchive: 'A record of your investigation',
+  searchDiscoveries: 'Search my discoveries',
+  searchPlaceholder: 'A title, an artist, a material…',
+  noSearchResults: 'No artworks match this search.',
+  artworkUnavailable: 'The artwork record is temporarily unavailable',
   appName: 'Nocturne',
   appSubtitle: 'Museum Mysteries',
   home: 'The cases',
@@ -193,7 +298,8 @@ export const EN = {
   sourceFallback: 'Backup record from {date}',
   sourceFallbackExplanation: 'The Met record is unavailable. This dated copy lets you continue.',
   sourceReference: 'Case reference from {date}',
-  sourceReferenceExplanation: 'The current record has changed. This case’s documents and reasoning use their dated reference.',
+  sourceReferenceExplanation:
+    'The current record has changed. This case’s documents and reasoning use their dated reference.',
   currentMuseumRecord: 'Current museum record',
   retry: 'Retry',
   loading: 'Loading…',
@@ -233,7 +339,8 @@ export const EN = {
   confirmationTitle: 'Is this your conclusion?',
   confirmationText: 'This confirmation uses one final attempt. You can still review your clues.',
   cancel: 'Review the case',
-  firstFinalError: 'This artwork contradicts at least one clue. Read the explanation below and review the case.',
+  firstFinalError:
+    'This artwork contradicts at least one clue. Read the explanation below and review the case.',
   solved: 'Case solved',
   solvedWithAssistance: 'Case solved with final assistance',
   finalAssistanceNote: 'Final assistance does not change your puzzle stars.',
@@ -241,7 +348,8 @@ export const EN = {
   seeResult: 'View result',
   replay: 'Replay this case',
   replayTitle: 'Start a new attempt?',
-  replayText: 'Your current answers, hints and clues will be cleared. Your discoveries and best complete result will remain in the notebook.',
+  replayText:
+    'Your current answers, hints and clues will be cleared. Your discoveries and best complete result will remain in the notebook.',
   replayConfirm: 'Start a new attempt',
   keepAttempt: 'Keep this attempt',
   notebookEmpty: 'Your first observation awaits in the museum galleries.',
@@ -252,24 +360,34 @@ export const EN = {
   showAll: 'Show all',
   chronology: 'Chronological landmarks',
   chronologyLocked: 'Solve this case’s chronology puzzle to open its timeline.',
-  chronologyScope: 'Witness artworks in this case: {count}. Intervals use the Met’s numeric bounds.',
+  chronologyScope:
+    'Witness artworks in this case: {count}. Intervals use the Met’s numeric bounds.',
   artworkDistribution: 'Distribution of discoveries',
   candidateEvolution: 'Narrowing the trail',
-  candidateEvolutionDescription: 'Candidates compatible with the clues, in the order those clues were earned.',
+  candidateEvolutionDescription:
+    'Candidates compatible with the clues, in the order those clues were earned.',
   starsByPuzzle: 'Stars by puzzle',
   chartTextAlternative: 'View the values',
   noData: 'No data for this analysis yet.',
   sampleSize: 'Sample: {count} artworks',
   allCases: 'All cases',
-  storageUnavailable: 'Saving is unavailable in this browser. You can play, but this progress will not remain after you close it.',
+  storageUnavailable:
+    'Saving is unavailable in this browser. You can play, but this progress will not remain after you close it.',
   progressRecovered: 'Part of your save no longer matched the cases. Valid data has been retained.',
   unavailablePage: 'This page is unavailable',
   unavailableArtwork: 'This artwork is not yet available in your investigation.',
-  ruleOpen: 'All three cases and their four puzzles are open. Follow the suggested order or explore freely.',
-  ruleStars: 'Each puzzle earns three stars without help, two after a nudge or precise hint, and one with the explained solution.',
-  ruleErrors: 'Puzzle mistakes and time never remove stars. Your stars are frozen when you solve a puzzle.',
-  ruleFinal: 'After all four puzzles, identify the artwork using your clues. You have two final confirmations.',
-  ruleAssistance: 'The first final error reveals a contradiction. After the second, a guided conclusion explains the reasoning without changing your stars.',
-  ruleSave: 'Progress is saved in this browser. Replaying retains discoveries and your best result from a whole completed attempt.',
-  ruleMuseum: 'Artworks and their records come from The Metropolitan Museum of Art. Case narratives and documents are fictional.',
+  ruleOpen:
+    'All three cases and their four puzzles are open. Follow the suggested order or explore freely.',
+  ruleStars:
+    'Each puzzle earns three stars without help, two after a nudge or precise hint, and one with the explained solution.',
+  ruleErrors:
+    'Puzzle mistakes and time never remove stars. Your stars are frozen when you solve a puzzle.',
+  ruleFinal:
+    'After all four puzzles, identify the artwork using your clues. You have two final confirmations.',
+  ruleAssistance:
+    'The first final error reveals a contradiction. After the second, a guided conclusion explains the reasoning without changing your stars.',
+  ruleSave:
+    'Progress is saved in this browser. Replaying retains discoveries and your best result from a whole completed attempt.',
+  ruleMuseum:
+    'Artworks and their records come from The Metropolitan Museum of Art. Case narratives and documents are fictional.',
 } satisfies Record<TranslationKey, string>;

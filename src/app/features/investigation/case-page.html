@@ -1,0 +1,219 @@
+@if (definition(); as definition) {
+  @let progress = this.progress();
+  <section class="page case-page" [attr.data-theme]="definition.accent">
+    <a class="breadcrumb" routerLink="/">← {{ locale.t('backToCases') }}</a>
+    <header class="page-heading">
+      <div>
+        <p class="eyebrow">
+          {{ locale.t('caseLabel') }} <span class="fine-line"></span
+          >{{ locale.pick(definition.difficulty) }}
+        </p>
+        <h1>{{ locale.pick(definition.title) }}</h1>
+        <p class="lead">{{ locale.pick(definition.subtitle) }}</p>
+      </div>
+      <div class="case-status">
+        <span class="star-display"
+          >{{ caseStars(progress) }} <span aria-hidden="true">/ 12 ☆</span></span
+        >
+        <p>{{ locale.t('progress', { completed: completedPuzzleCount(progress), total: 4 }) }}</p>
+      </div>
+    </header>
+    @if (progress.final.outcome) {
+      <section class="conclusion-layout">
+        <div class="gallery-stage">
+          <div class="artwork-frame conclusion-art">
+            <app-artwork-image [artworkId]="definition.targetArtworkId" [eager]="true" />
+          </div>
+          <a class="text-button" [routerLink]="['/artworks', definition.targetArtworkId]"
+            >{{ locale.t('artworkDetails') }} ↗</a
+          >
+        </div>
+        <div class="conclusion-copy">
+          <p class="eyebrow">{{ locale.t('conclusion') }}</p>
+          <h2>
+            {{
+              locale.t(progress.final.outcome === 'assisted' ? 'solvedWithAssistance' : 'solved')
+            }}
+          </h2>
+          <p>
+            {{
+              locale.pick(
+                progress.final.outcome === 'assisted'
+                  ? definition.assistedConclusion
+                  : definition.conclusion
+              )
+            }}
+          </p>
+          <p class="result-stars">{{ caseStars(progress) }} <span>/ 12 ☆</span></p>
+          <p class="subtle">{{ locale.t('finalAssistanceNote') }}</p>
+          <div class="result-breakdown">
+            @for (puzzle of definition.puzzles; track puzzle.id) {
+              <div>
+                <span>{{ locale.pick(puzzle.title) }}</span
+                ><strong>{{ progress.puzzles[puzzle.id].completion?.stars }} / 3 ☆</strong>
+              </div>
+            }
+          </div>
+          <p class="subtle">{{ locale.t('bestResult') }} : {{ bestStars(progress.best) }} / 12</p>
+          <button class="button secondary" type="button" (click)="openReplay()">
+            {{ locale.t('replay') }} ↻
+          </button>
+        </div>
+      </section>
+    } @else {
+      <section class="briefing-layout">
+        <div class="gallery-stage briefing-gallery">
+          <span class="wall-label">{{ locale.t('witnessLabel') }}</span>
+          <div class="artwork-frame">
+            <app-artwork-image [artworkId]="definition.coverArtworkId" [eager]="true" />
+          </div>
+          <p class="gallery-credit">
+            {{ evidence()?.byId.get(definition.coverArtworkId)?.facts?.title
+            }}<span>{{
+              evidence()?.byId.get(definition.coverArtworkId)?.facts?.artistDisplayName
+            }}</span>
+          </p>
+        </div>
+        <div class="briefing-copy">
+          <p class="eyebrow">{{ locale.t('briefing') }}</p>
+          <h2>{{ locale.t('everyDetailMatters') }}</h2>
+          <p>{{ locale.pick(definition.briefing) }}</p>
+          <p class="subtle">{{ locale.pick(definition.introduction) }}</p>
+          <a
+            class="button"
+            [routerLink]="['/cases', definition.id, 'puzzles', definition.puzzles[0].id]"
+            >{{ locale.t(progress.clueOrder.length ? 'resumeCase' : 'startInvestigation') }} →</a
+          >
+          <p class="small-print">
+            {{ locale.t('recommendedOrder') }} ·
+            {{ locale.t('estimatedDuration', { min: 10, max: 15 }) }}
+          </p>
+        </div>
+      </section>
+    }
+    <app-puzzle-navigation [definition]="definition" />
+    <section class="case-dossier">
+      <div>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">{{ locale.t('dossier') }}</p>
+            <h2>
+              {{ locale.t('clues') }}
+              <span class="heading-count">{{ progress.clueOrder.length }}/4</span>
+            </h2>
+          </div>
+        </div>
+        @if (!progress.clueOrder.length) {
+          <p class="empty-copy">{{ locale.t('noClues') }}</p>
+        }
+        <ol class="clue-list">
+          @for (clueId of progress.clueOrder; track clueId; let index = $index) {
+            @for (puzzle of definition.puzzles; track puzzle.id) {
+              @if (puzzle.clue.id === clueId) {
+                <li>
+                  <span class="clue-index">0{{ index + 1 }}</span>
+                  <div>
+                    <span class="eyebrow">{{ locale.pick(puzzle.title) }}</span>
+                    <p>{{ locale.pick(puzzle.clue.text) }}</p>
+                  </div>
+                </li>
+              }
+            }
+          }
+        </ol>
+      </div>
+      <aside class="final-entry">
+        <p class="eyebrow">{{ locale.t('finalIdentification') }}</p>
+        <span class="ornament" aria-hidden="true">{{
+          finalAvailable(progress, definition) ? '◇' : '⌑'
+        }}</span>
+        <p>{{ locale.t(finalAvailable(progress, definition) ? 'finalReady' : 'finalLocked') }}</p>
+        @if (progress.final.outcome) {
+          <span class="status-chip">{{
+            locale.t(progress.final.outcome === 'assisted' ? 'solvedWithAssistance' : 'solved')
+          }}</span>
+        }
+      </aside>
+    </section>
+    @if (finalAvailable(progress, definition) && !progress.final.outcome) {
+      <section class="final-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">{{ locale.t('finalIdentification') }}</p>
+            <h2>{{ locale.t('whichWorkIsMissing') }}</h2>
+          </div>
+          <span class="subtle">{{
+            locale.t(progress.final.verdicts.length ? 'finalAttempts' : 'finalAttemptsPlural', {
+              count: 2 - progress.final.verdicts.length,
+            })
+          }}</span>
+        </div>
+        @if (lastWrong(); as wrong) {
+          <div class="feedback incorrect" role="status">
+            <strong>{{ locale.t('firstFinalError') }}</strong>
+            <p>{{ locale.pick(definition.candidateExplanations[wrong]) }}</p>
+          </div>
+        }
+        <div class="final-candidates">
+          @for (id of definition.candidateIds; track id) {
+            @let item = evidence()?.byId.get(id);
+            <article class="candidate-card">
+              <a [routerLink]="['/artworks', id]" class="candidate-art"
+                ><app-artwork-image [artworkId]="id"
+              /></a>
+              <div class="candidate-copy">
+                <h3>{{ item?.facts?.title }}</h3>
+                <p>{{ item?.facts?.artistDisplayName || locale.t('unknown') }}</p>
+                <dl class="compact-facts">
+                  <dt>{{ locale.t('numericDates') }}</dt>
+                  <dd>{{ item?.facts?.objectBeginDate }} — {{ item?.facts?.objectEndDate }}</dd>
+                  <dt>{{ locale.t('medium') }}</dt>
+                  <dd>{{ item?.facts?.medium || locale.t('unknown') }}</dd>
+                  <dt>{{ locale.t('objectType') }}</dt>
+                  <dd>{{ item?.facts?.objectName || locale.t('unknown') }}</dd>
+                </dl>
+                <app-source-status [evidence]="item" /><a
+                  class="text-button"
+                  [routerLink]="['/artworks', id]"
+                  >{{ locale.t('examineArtwork') }} ↗</a
+                ><button
+                  class="button secondary"
+                  type="button"
+                  [attr.data-candidate-id]="id"
+                  (click)="selectCandidate(id)"
+                >
+                  {{ locale.t('selectCandidate') }}
+                </button>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    }
+    <app-dialog #confirmation [heading]="locale.t('confirmationTitle')"
+      ><p>{{ locale.t('confirmationText') }}</p>
+      @if (selected(); as selectedId) {
+        <h3>{{ evidence()?.byId.get(selectedId)?.facts?.title }}</h3>
+      }
+      <div class="dialog-actions">
+        <button class="button secondary" type="button" (click)="confirmation.close()">
+          {{ locale.t('cancel') }}</button
+        ><button class="button" type="button" (click)="confirm()">
+          {{ locale.t('confirmCandidate') }}
+        </button>
+      </div></app-dialog
+    >
+    <app-dialog #replay [heading]="locale.t('replayTitle')"
+      ><p>{{ locale.t('replayText') }}</p>
+      <div class="dialog-actions">
+        <button class="button secondary" type="button" (click)="replay.close()">
+          {{ locale.t('keepAttempt') }}</button
+        ><button class="button" type="button" (click)="replayCase()">
+          {{ locale.t('replayConfirm') }}
+        </button>
+      </div></app-dialog
+    >
+  </section>
+} @else {
+  <app-unavailable-page />
+}
