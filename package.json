@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "preview": "ng serve --configuration production --port 4173",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "test:assets": "vitest run tests/fixtures/met/corpus-assets.spec.ts"
   },
   "private": true,
   "packageManager": "npm@11.19.1",
