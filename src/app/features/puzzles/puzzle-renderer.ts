@@ -3,7 +3,7 @@ import type { Puzzle, PuzzleAnswer, LabelRole } from '../../domain/case-definiti
 import type { CaseEvidence } from '../../domain/artwork';
 import { LocaleStore } from '../../core/i18n/locale-store';
 import { ArtworkImage } from '../../shared/artwork-image';
-import { OrderControls } from './order-controls';
+import { initialChronology, OrderControls } from './order-controls';
 import type { OrderItem } from './order-controls';
 import { MaterialMatching } from './material-matching/material-matching';
 import { Inventory } from './inventory/inventory';
@@ -33,7 +33,7 @@ export class PuzzleRenderer {
   readonly chronologyItems = computed<readonly OrderItem[]>(() => {
     const puzzle = this.puzzle();
     if (puzzle.kind !== 'chronology') return [];
-    return [...puzzle.items.slice(1), ...puzzle.items.slice(0, 1)].map((item) => {
+    return initialChronology(puzzle.items).map((item) => {
       const facts = this.evidence().byId.get(item.artworkId)!.facts;
       return {
         id: item.id,

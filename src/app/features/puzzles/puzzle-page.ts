@@ -9,7 +9,7 @@ import { projectCaseEvidence } from '../../core/met/case-evidence';
 import type { PuzzleAnswer } from '../../domain/case-definition';
 import { PuzzleNavigation } from '../../shared/puzzle-navigation';
 import { PuzzleRenderer } from './puzzle-renderer';
-import { completeOrder } from './order-controls';
+import { completeOrder, initialChronology } from './order-controls';
 import { ArtworkImage } from '../../shared/artwork-image';
 import { SourceStatus } from '../../shared/source-status';
 import { UnavailablePage } from '../../shared/unavailable-page';
@@ -74,10 +74,7 @@ export class PuzzlePage {
     const puzzle = this.puzzle()!;
     let draft = this.progress().draft;
     if (puzzle.kind === 'chronology' || puzzle.kind === 'inventory') {
-      const items =
-        puzzle.kind === 'chronology'
-          ? [...puzzle.items.slice(1), ...puzzle.items.slice(0, 1)]
-          : puzzle.items;
+      const items = puzzle.kind === 'chronology' ? initialChronology(puzzle.items) : puzzle.items;
       draft = completeOrder(
         items.map((item) => item.id),
         Array.isArray(draft) ? draft : null,

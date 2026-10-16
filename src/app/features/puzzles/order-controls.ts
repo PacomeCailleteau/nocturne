@@ -9,6 +9,10 @@ export interface OrderItem {
   readonly artworkId?: number;
 }
 
+export function initialChronology<T>(items: readonly T[]): readonly T[] {
+  return [...items.slice(1), ...items.slice(0, 1)];
+}
+
 export function completeOrder(
   itemIds: readonly string[],
   draft: readonly string[] | null,

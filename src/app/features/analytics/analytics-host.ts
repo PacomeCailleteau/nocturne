@@ -63,11 +63,9 @@ export class AnalyticsHost implements OnDestroy {
       );
       untracked(() =>
         this.repository.load([
-          ...new Set([
-            ...state.discoveredArtworkIds,
-            ...eligibleWitnesses,
-            ...earnedCandidatePools,
-          ]),
+          ...state.discoveredArtworkIds,
+          ...eligibleWitnesses,
+          ...earnedCandidatePools,
         ]),
       );
     });

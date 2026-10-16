@@ -40,24 +40,21 @@ export class App {
         document.getElementById('main-content')?.focus({ preventScroll: true });
       });
     effect(() => {
-      const parts = this.routeUrl().split(/[/?#]/).filter(Boolean);
-      const definition = parts[0] === 'cases' ? CASE_BY_ID.get(parts[1]) : undefined;
-      const puzzle = definition?.puzzles.find((item) => item.id === parts[3]);
-      const label = puzzle
-        ? this.locale.pick(puzzle.title)
-        : definition
-          ? this.locale.pick(definition.title)
-          : parts[0] === 'notebook'
-            ? this.locale.t('notebook')
-            : parts[0] === 'analytics'
-              ? this.locale.t('analyticsTitle')
-              : parts[0] === 'artworks'
-                ? this.locale.t('artworkDetails')
-                : parts.length
-                  ? this.locale.t('unavailablePage')
-                  : this.locale.t('appSubtitle');
+      const label = this.pageTitle();
       document.title = `${label} — Nocturne`;
     });
+  }
+
+  private pageTitle(): string {
+    const parts = this.routeUrl().split(/[/?#]/).filter(Boolean);
+    const definition = parts[0] === 'cases' ? CASE_BY_ID.get(parts[1]) : undefined;
+    const puzzle = definition?.puzzles.find((item) => item.id === parts[3]);
+    if (puzzle) return this.locale.pick(puzzle.title);
+    if (definition) return this.locale.pick(definition.title);
+    if (parts[0] === 'notebook') return this.locale.t('notebook');
+    if (parts[0] === 'analytics') return this.locale.t('analyticsTitle');
+    if (parts[0] === 'artworks') return this.locale.t('artworkDetails');
+    return this.locale.t(parts.length ? 'unavailablePage' : 'appSubtitle');
   }
 
   skipToContent(event: Event): void {
