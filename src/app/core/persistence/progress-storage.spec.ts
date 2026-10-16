@@ -73,11 +73,10 @@ describe('Versioned local progress', () => {
     expect(replay.discarded).toBe(false);
   });
 
-  it('rejects forged clues, duplicate verdict tokens and inconsistent completion stars', () => {
+  it('rejects forged clues and inconsistent completion stars', () => {
     const fresh = createGameState(CASES);
     for (const patch of [
       { clueOrder: [dossier.puzzles[0].clue.id] },
-      { final: { outcome: 'assisted', verdicts: [{ candidateId: dossier.candidateIds[0], token: 'same' }, { candidateId: dossier.candidateIds[0], token: 'same' }] } },
       { puzzles: { ...fresh.cases[dossier.id].puzzles, [dossier.puzzles[0].id]: { draft: dossier.puzzles[0].answer, hintLevel: 2, completion: { stars: 3 }, feedback: 'correct' } } },
     ]) {
       const game = { ...fresh, cases: { ...fresh.cases, [dossier.id]: { ...fresh.cases[dossier.id], ...patch } } };
@@ -85,6 +84,23 @@ describe('Versioned local progress', () => {
       expect(result.game.cases[dossier.id]).toEqual(fresh.cases[dossier.id]);
       expect(result.discarded).toBe(true);
     }
+  });
+
+  it('rejects duplicate verdict tokens in an otherwise valid completed attempt', () => {
+    let game = createGameState(CASES);
+    for (const puzzle of dossier.puzzles) game = submitPuzzle(game, dossier, puzzle.id, puzzle.answer);
+    const wrongId = dossier.candidateIds.find((id) => id !== dossier.targetArtworkId)!;
+    game = confirmFinal(game, dossier, wrongId, 'first-confirmation');
+    game = confirmFinal(game, dossier, wrongId, 'second-confirmation');
+    const valid = parseProgress(JSON.stringify({ version: 1, locale: 'fr', game }), CASES);
+    expect(valid.discarded).toBe(false);
+    expect(valid.game).toEqual(game);
+    const progress = game.cases[dossier.id];
+    const verdicts = progress.final.verdicts.map((verdict) => ({ ...verdict, token: 'first-confirmation' }));
+    const damaged = { ...game, cases: { ...game.cases, [dossier.id]: { ...progress, final: { ...progress.final, verdicts } } } };
+    const restored = parseProgress(JSON.stringify({ version: 1, locale: 'fr', game: damaged }), CASES);
+    expect(restored.discarded).toBe(true);
+    expect(restored.game.cases[dossier.id]).toEqual(createGameState(CASES).cases[dossier.id]);
   });
 
   it('continues in memory when reading or writing storage is refused', () => {

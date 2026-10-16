@@ -71,6 +71,7 @@ export class ArtworkImage {
   }
 
   imageFailed(): void {
-    this.failed.update((count) => count + 1);
+    const local = ARTWORK_BY_ID.get(this.artworkId())?.image.path;
+    this.failed.set(this.source() === local ? 2 : 1);
   }
 }

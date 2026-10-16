@@ -104,7 +104,7 @@ npm exec playwright install chromium
 npm run test:e2e -- --workers=2
 ```
 
-Linux CI installs browser/system dependencies with `npm exec playwright install --with-deps chromium`. The workflow runs installation, lint, production compilation, unit/integration tests, assets and Chromium desktop/mobile journeys, retaining failure screenshots and traces. No secret is required.
+Linux CI installs browser/system dependencies with `npm exec playwright install --with-deps chromium`. The workflow runs installation, lint, production compilation, unit/integration tests, assets and Chromium desktop/mobile journeys against the compiled production preview, retaining failure screenshots and traces. Local journeys use the development server; setting `CI=true` requires building first and uses the production preview. No secret is required.
 
 Tests cover unique solutions and clue orders, uncertain chronology, scoring, idempotent final confirmation, whole-attempt best results, save recovery, HTTP failures/retries, source drift, language retention, all six mechanisms, all three conclusions, replay, React lifecycle/property integration and disclosure gates. Playwright controls external responses for reproducibility. Accessibility checks combine axe scans, keyboard/focus assertions, enlarged text, reduced motion and responsive layouts; they do not certify complete accessibility or replace human usability testing.
 
