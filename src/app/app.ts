@@ -49,11 +49,13 @@ export class App {
           ? this.locale.pick(definition.title)
           : parts[0] === 'notebook'
             ? this.locale.t('notebook')
-            : parts[0] === 'artworks'
-              ? this.locale.t('artworkDetails')
-              : parts.length
-                ? this.locale.t('unavailablePage')
-                : this.locale.t('appSubtitle');
+            : parts[0] === 'analytics'
+              ? this.locale.t('analyticsTitle')
+              : parts[0] === 'artworks'
+                ? this.locale.t('artworkDetails')
+                : parts.length
+                  ? this.locale.t('unavailablePage')
+                  : this.locale.t('appSubtitle');
       document.title = `${label} — Nocturne`;
     });
   }

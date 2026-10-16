@@ -21,6 +21,14 @@ export const routes: Routes = [
       import('./features/notebook/notebook-page').then((module) => module.NotebookPage),
   },
   {
+    path: 'analytics',
+    loadComponent: async () => {
+      const integration = await import('../integrations/analytics/analytics-element');
+      integration.registerAnalyticsElement();
+      return (await import('./features/analytics/analytics-host')).AnalyticsHost;
+    },
+  },
+  {
     path: 'artworks/:artworkId',
     loadComponent: () =>
       import('./features/artwork/artwork-page').then((module) => module.ArtworkPage),

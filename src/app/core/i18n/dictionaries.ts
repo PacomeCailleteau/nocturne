@@ -1,4 +1,8 @@
 export const FR = {
+  analyticsTitle: 'L’observatoire',
+  analyticsEyebrow: 'Les traces de votre regard',
+  analyticsIntroduction:
+    'Le temps des œuvres, le fil des indices et vos étoiles. Prenez du recul sur vos enquêtes.',
   savedLocally: 'Progression sauvegardée',
   memoryOnly: 'Partie en mémoire',
   realArtFictionalCases: 'Des œuvres réelles. Des mystères imaginés.',
@@ -208,6 +212,10 @@ export const FR = {
 export type TranslationKey = keyof typeof FR;
 
 export const EN = {
+  analyticsTitle: 'The observatory',
+  analyticsEyebrow: 'A record of your observations',
+  analyticsIntroduction:
+    'The time behind the artworks, the trail of clues and your stars. See your investigations from a new perspective.',
   savedLocally: 'Progress saved',
   memoryOnly: 'In-memory session',
   realArtFictionalCases: 'Real artworks. Imagined mysteries.',
