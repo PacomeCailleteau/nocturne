@@ -5,10 +5,12 @@ import { LocaleStore } from '../../core/i18n/locale-store';
 import { ArtworkImage } from '../../shared/artwork-image';
 import { OrderControls } from './order-controls';
 import type { OrderItem } from './order-controls';
+import { MaterialMatching } from './material-matching/material-matching';
+import { Inventory } from './inventory/inventory';
 
 @Component({
   selector: 'app-puzzle-renderer',
-  imports: [ArtworkImage, OrderControls],
+  imports: [ArtworkImage, OrderControls, MaterialMatching, Inventory],
   templateUrl: './puzzle-renderer.html',
 })
 export class PuzzleRenderer {
@@ -16,11 +18,18 @@ export class PuzzleRenderer {
   readonly evidence = input.required<CaseEvidence>();
   readonly draft = input<PuzzleAnswer | null>(null);
   readonly disabled = input(false);
+  readonly incorrect = input(false);
   readonly draftChange = output<PuzzleAnswer>();
   readonly locale = inject(LocaleStore);
   readonly arrayDraft = computed(() =>
     Array.isArray(this.draft()) ? (this.draft() as readonly string[]) : null,
   );
+  readonly mappingDraft = computed(() => {
+    const draft = this.draft();
+    return draft !== null && typeof draft === 'object' && !Array.isArray(draft)
+      ? (draft as Readonly<Record<string, string>>)
+      : null;
+  });
   readonly chronologyItems = computed<readonly OrderItem[]>(() => {
     const puzzle = this.puzzle();
     if (puzzle.kind !== 'chronology') return [];

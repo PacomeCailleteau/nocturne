@@ -33,15 +33,18 @@
             [evidence]="evidence"
             [draft]="progress.draft"
             [disabled]="!!progress.completion"
+            [incorrect]="progress.feedback === 'incorrect'"
             (draftChange)="setDraft($event)"
           />
           <div class="puzzle-actions">
-            @if (!progress.completion && supported()) {
+            @if (!progress.completion) {
               <button
                 type="button"
                 class="button"
                 (click)="submit()"
-                [disabled]="!progress.draft && puzzle.kind !== 'chronology'"
+                [disabled]="
+                  !progress.draft && puzzle.kind !== 'chronology' && puzzle.kind !== 'inventory'
+                "
               >
                 {{ locale.t('submitAnswer') }} →
               </button>

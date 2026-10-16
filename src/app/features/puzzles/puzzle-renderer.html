@@ -125,7 +125,23 @@
       }
     </div>
   }
-  @default {
-    <p class="empty-copy">{{ locale.t('distinctivePuzzleNotice') }}</p>
+  @case ('materials') {
+    <app-material-matching
+      [puzzle]="puzzle"
+      [evidence]="evidence()"
+      [draft]="mappingDraft()"
+      [disabled]="disabled()"
+      (draftChange)="draftChange.emit($event)"
+    />
+  }
+  @case ('inventory') {
+    <app-inventory
+      [puzzle]="puzzle"
+      [evidence]="evidence()"
+      [draft]="arrayDraft()"
+      [disabled]="disabled()"
+      [incorrect]="incorrect()"
+      (draftChange)="draftChange.emit($event)"
+    />
   }
 }

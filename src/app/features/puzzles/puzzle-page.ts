@@ -9,6 +9,7 @@ import { projectCaseEvidence } from '../../core/met/case-evidence';
 import type { PuzzleAnswer } from '../../domain/case-definition';
 import { PuzzleNavigation } from '../../shared/puzzle-navigation';
 import { PuzzleRenderer } from './puzzle-renderer';
+import { completeOrder } from './order-controls';
 import { ArtworkImage } from '../../shared/artwork-image';
 import { SourceStatus } from '../../shared/source-status';
 import { UnavailablePage } from '../../shared/unavailable-page';
@@ -48,9 +49,6 @@ export class PuzzlePage {
     const level = this.progress()?.hintLevel ?? 0;
     return level === 0 ? 'hintOrientation' : level === 1 ? 'hintPrecise' : 'hintSolution';
   });
-  readonly supported = computed(
-    () => this.puzzle()?.kind !== 'materials' && this.puzzle()?.kind !== 'inventory',
-  );
   readonly nextPuzzle = computed(() => {
     const definition = this.definition();
     if (!definition) return undefined;
@@ -75,8 +73,16 @@ export class PuzzlePage {
   submit(): void {
     const puzzle = this.puzzle()!;
     let draft = this.progress().draft;
-    if (draft === null && puzzle.kind === 'chronology')
-      draft = [...puzzle.items.slice(1), ...puzzle.items.slice(0, 1)].map((item) => item.id);
+    if (puzzle.kind === 'chronology' || puzzle.kind === 'inventory') {
+      const items =
+        puzzle.kind === 'chronology'
+          ? [...puzzle.items.slice(1), ...puzzle.items.slice(0, 1)]
+          : puzzle.items;
+      draft = completeOrder(
+        items.map((item) => item.id),
+        Array.isArray(draft) ? draft : null,
+      );
+    }
     if (draft !== null) this.game.submitPuzzle(this.definition()!.id, puzzle.id, draft);
   }
   hint(): void {

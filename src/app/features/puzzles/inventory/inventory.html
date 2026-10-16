@@ -1,0 +1,27 @@
+<div class="puzzle-section-heading">
+  <h2>{{ locale.t('restoreTheInventory') }}</h2>
+  <p>{{ locale.t('inventoryControls') }}</p>
+</div>
+<section class="inventory-register" [attr.aria-label]="locale.t('displayConstraints')">
+  <span class="paper-stamp">{{ locale.t('fictionalDocument') }}</span>
+  <h3>{{ locale.t('displayConstraints') }}</h3>
+  <ol>
+    @for (constraint of puzzle().constraintText; track $index) {
+      <li>{{ locale.pick(constraint) }}</li>
+    }
+  </ol>
+</section>
+<div class="inventory-display">
+  <app-order-controls
+    [items]="items()"
+    [order]="draft()"
+    [slotLabels]="slotLabels()"
+    [disabled]="disabled()"
+    (orderChange)="draftChange.emit($event)"
+  />
+</div>
+@if (violatedConstraint(); as constraint) {
+  <p class="constraint-feedback" role="status">
+    <strong>{{ locale.t('constraintNotMet') }}</strong> {{ locale.pick(constraint) }}
+  </p>
+}

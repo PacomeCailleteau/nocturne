@@ -35,7 +35,15 @@ export const FR = {
     'Ajoutez les fragments, puis ajustez leur place avec les flèches. Vous pouvez retirer un fragment à tout moment.',
   museumLabel: 'Cartel du musée',
   labelEmpty: 'Les fragments que vous choisissez prendront place ici.',
-  distinctivePuzzleNotice: 'Cette table est en cours de préparation.',
+  matchTheMaterials: 'Trois rapports. Trois supports.',
+  materialControls:
+    'Associez chaque rapport à une œuvre. Choisir une œuvre déjà attribuée échange les deux associations ; vous pouvez aussi laisser un rapport vide.',
+  reportUnassigned: 'Une œuvre attend d’être associée à ce rapport.',
+  restoreTheInventory: 'Chaque objet à sa place.',
+  inventoryControls:
+    'Reconstituez la vitrine de gauche à droite avec les flèches. Les emplacements restent fixes lorsque les objets se déplacent.',
+  displayConstraints: 'Les consignes du registre',
+  constraintNotMet: 'Contrainte à réexaminer :',
   nextPuzzle: 'Explorer l’épreuve suivante',
   inspectToCollect: 'Examinez volontairement une œuvre pour l’ajouter à votre carnet.',
   personalArchive: 'Votre mémoire de l’enquête',
@@ -235,7 +243,15 @@ export const EN = {
     'Add the fragments, then use the arrows to adjust their positions. You can remove a fragment at any time.',
   museumLabel: 'Museum label',
   labelEmpty: 'Your chosen fragments will take their places here.',
-  distinctivePuzzleNotice: 'This desk is being prepared.',
+  matchTheMaterials: 'Three reports. Three formats.',
+  materialControls:
+    'Match each report to an artwork. Choosing an artwork already assigned swaps the two matches; you can also leave a report empty.',
+  reportUnassigned: 'An artwork is waiting to be matched with this report.',
+  restoreTheInventory: 'Every object in its place.',
+  inventoryControls:
+    'Reconstruct the display from left to right with the arrows. Slots remain fixed as the objects move.',
+  displayConstraints: 'Register instructions',
+  constraintNotMet: 'Constraint to reconsider:',
   nextPuzzle: 'Explore the next puzzle',
   inspectToCollect: 'Deliberately examine an artwork to add it to your notebook.',
   personalArchive: 'A record of your investigation',

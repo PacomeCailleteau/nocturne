@@ -9,6 +9,14 @@ export interface OrderItem {
   readonly artworkId?: number;
 }
 
+export function completeOrder(
+  itemIds: readonly string[],
+  draft: readonly string[] | null,
+): readonly string[] {
+  const chosen = (draft ?? []).filter((id) => itemIds.includes(id));
+  return [...chosen, ...itemIds.filter((id) => !chosen.includes(id))];
+}
+
 @Component({
   selector: 'app-order-controls',
   imports: [ArtworkImage],
@@ -20,6 +28,9 @@ export interface OrderItem {
           <app-artwork-image [artworkId]="id" [compact]="true" />
         }
         <div class="order-copy">
+          @if (slotLabels()[index]; as slotLabel) {
+            <span class="order-slot-label">{{ slotLabel }}</span>
+          }
           <strong>{{ item.label }}</strong>
           @if (item.detail) {
             <small>{{ item.detail }}</small>
@@ -52,15 +63,15 @@ export class OrderControls {
   readonly items = input.required<readonly OrderItem[]>();
   readonly order = input<readonly string[] | null>(null);
   readonly disabled = input(false);
+  readonly slotLabels = input<readonly string[]>([]);
   readonly orderChange = output<readonly string[]>();
   readonly locale = inject(LocaleStore);
   readonly ordered = computed(() => {
     const items = this.items();
-    const chosen = (this.order() ?? []).filter((id) => items.some((item) => item.id === id));
-    const order = [
-      ...chosen,
-      ...items.filter((item) => !chosen.includes(item.id)).map((item) => item.id),
-    ];
+    const order = completeOrder(
+      items.map((item) => item.id),
+      this.order(),
+    );
     return order.map((id) => items.find((item) => item.id === id)!);
   });
 

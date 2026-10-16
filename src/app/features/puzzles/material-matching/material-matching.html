@@ -1,0 +1,40 @@
+<div class="puzzle-section-heading">
+  <h2>{{ locale.t('matchTheMaterials') }}</h2>
+  <p>{{ locale.t('materialControls') }}</p>
+</div>
+<div class="material-reports">
+  @for (report of puzzle().reports; track report.id; let index = $index) {
+    <article class="material-report">
+      <div class="material-report-heading">
+        <span class="report-seal" aria-hidden="true">0{{ index + 1 }}</span>
+        <label [for]="puzzle().id + '-' + report.id">{{ locale.pick(report.text) }}</label>
+      </div>
+      <select
+        [id]="puzzle().id + '-' + report.id"
+        [attr.data-report-id]="report.id"
+        [ngModel]="draft()?.[report.id] ?? ''"
+        [disabled]="disabled()"
+        (ngModelChange)="assign(report.id, $event)"
+      >
+        <option value="">{{ locale.t('chooseOneArtwork') }}</option>
+        @for (item of puzzle().items; track item.id) {
+          <option [value]="item.id">
+            {{ evidence().byId.get(item.artworkId)?.facts?.title || locale.t('unknown') }}
+          </option>
+        }
+      </select>
+      @if (selectedArtworkId(report.id); as artworkId) {
+        @let facts = evidence().byId.get(artworkId)!.facts;
+        <div class="material-assignment">
+          <app-artwork-image [artworkId]="artworkId" [compact]="true" />
+          <dl>
+            <dt>{{ locale.t('medium') }}</dt>
+            <dd>{{ facts.medium || locale.t('unknown') }}</dd>
+          </dl>
+        </div>
+      } @else {
+        <p class="material-empty">{{ locale.t('reportUnassigned') }}</p>
+      }
+    </article>
+  }
+</div>
