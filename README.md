@@ -139,8 +139,8 @@ Progress is browser-local. Clearing storage, changing browsers or opening a diff
 
 ## AI assistance
 
-The project was developed feature by feature with OpenAI Codex using the GPT-6.1 Sol model. For each feature, the project owner reviewed the generated code and tested the functionality before continuing. The owner also selected the concept, atmosphere, interaction and scoring rules, languages, scope and publication choices.
+I developed this project feature by feature with OpenAI Codex using the GPT-6.1 Sol model. For each feature, I reviewed the generated code and tested the functionality before continuing. I also selected the concept, atmosphere, interaction and scoring rules, languages, scope and publication choices.
 
-Codex assisted with assignment analysis, concept and visual proposals, planning, technical research, museum record selection, bilingual fictional cases, Angular and React implementation, styling, tests, CI and documentation. Compound Engineering skills structured brainstorming, planning, implementation and review. Additional AI reviewers examined bounded planning and code changes, and the primary agent checked their findings before integration.
+Codex assisted me with assignment analysis, concept and visual proposals, planning, technical research, museum record selection, bilingual fictional cases, Angular and React implementation, styling, tests, CI and documentation. Compound Engineering skills structured brainstorming, planning, implementation and review. Additional AI reviewers examined bounded planning and code changes, and the primary agent checked their findings before integration.
 
-Angular CLI generated the initial configuration. Museum metadata and images come from the cited sources. No AI image generation was used. The owner's functional testing complements automated tests and agent-operated browser checks. Independent timed playtests and a complete accessibility evaluation have not been carried out.
+Angular CLI generated the initial configuration. Museum metadata and images come from the cited sources. No AI image generation was used. My functional testing complements automated tests and agent-operated browser checks. Independent timed playtests and a complete accessibility evaluation have not been carried out.
