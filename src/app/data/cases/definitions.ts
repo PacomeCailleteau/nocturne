@@ -13,12 +13,12 @@ export const DEFINITIONS = [
       "en": "An empty frame. Four traces on paper."
     },
     "briefing": {
-      "fr": "À la fermeture, un cadre est découvert vide. Une enveloppe, un registre et un rapport ont changé de casier. Identifiez leurs œuvres témoins pour reconstruire le bordereau de la peinture disparue. Les documents de cette enquête sont fictifs ; les œuvres et leurs fiches sont réelles.",
-      "en": "At closing time, a frame is found empty. An envelope, a register and a report have changed lockers. Identify their witness works to reconstruct the missing painting’s dispatch sheet. The case documents are fictional; the works and records are real."
+      "fr": "À la fermeture, un cadre est découvert vide. Une enveloppe, un registre et un rapport ont changé de casier. Identifiez leurs œuvres témoins pour reconstruire le bordereau de la peinture disparue. Les documents de cette enquête sont fictifs. Les œuvres et leurs fiches sont réelles.",
+      "en": "At closing time, a frame is found empty. An envelope, a register and a report have changed lockers. Identify their witness works to reconstruct the missing painting’s dispatch sheet. The case documents are fictional. The works and records are real."
     },
     "introduction": {
       "fr": "Résolvez les quatre épreuves dans l’ordre de votre choix. Chaque réussite ajoute un indice au carnet, puis les quatre candidates deviennent consultables pour votre conclusion.",
-      "en": "Solve the four challenges in any order. Each success adds a clue to your notebook; the four candidates then become available for your conclusion."
+      "en": "Solve the four challenges in any order. Each success adds a clue to your notebook. The four candidates then become available for your conclusion."
     },
     "difficulty": {
       "fr": "Initiation",
@@ -54,8 +54,8 @@ export const DEFINITIONS = [
           "en": "A detail photograph was recovered in the file. Which witness artwork does it belong to?"
         },
         "instructions": {
-          "fr": "Comparez le fragment aux trois reproductions. Sélectionnez une œuvre ; les descriptions visuelles offrent la même information que l’image.",
-          "en": "Compare the fragment with the three reproductions. Select one work; the visual descriptions provide the same information as the image."
+          "fr": "Comparez le fragment aux trois reproductions. Sélectionnez une œuvre. Les descriptions visuelles offrent la même information que l’image.",
+          "en": "Compare the fragment with the three reproductions. Select one work. The visual descriptions provide the same information as the image."
         },
         "witnessIds": [
           437881,
@@ -179,8 +179,8 @@ export const DEFINITIONS = [
           "en": "Restore the witness works from earliest to latest creation."
         },
         "instructions": {
-          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
-          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
+          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position. La fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
+          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position. Each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
         },
         "witnessIds": [
           437881,
@@ -197,13 +197,13 @@ export const DEFINITIONS = [
             "en": "Start with the work whose end bound is earliest."
           },
           {
-            "fr": "L’ordre est Young Woman with a Water Pitcher (1657–1667) → Young Lady in 1866 (1866–1866) → Tahitian Landscape (1892–1892). La fin de chaque intervalle précède le début du suivant ; aucune année médiane n’est inventée.",
-            "en": "The order is Young Woman with a Water Pitcher (1657–1667) → Young Lady in 1866 (1866–1866) → Tahitian Landscape (1892–1892). Each interval ends before the next begins; no midpoint year is invented."
+            "fr": "L’ordre est Young Woman with a Water Pitcher (1657-1667) → Young Lady in 1866 (1866-1866) → Tahitian Landscape (1892-1892). La fin de chaque intervalle précède le début du suivant. Aucune année médiane n’est inventée.",
+            "en": "The order is Young Woman with a Water Pitcher (1657-1667) → Young Lady in 1866 (1866-1866) → Tahitian Landscape (1892-1892). Each interval ends before the next begins. No midpoint year is invented."
           }
         ],
         "explanation": {
-          "fr": "L’ordre est Young Woman with a Water Pitcher (1657–1667) → Young Lady in 1866 (1866–1866) → Tahitian Landscape (1892–1892). La fin de chaque intervalle précède le début du suivant ; aucune année médiane n’est inventée.",
-          "en": "The order is Young Woman with a Water Pitcher (1657–1667) → Young Lady in 1866 (1866–1866) → Tahitian Landscape (1892–1892). Each interval ends before the next begins; no midpoint year is invented."
+          "fr": "L’ordre est Young Woman with a Water Pitcher (1657-1667) → Young Lady in 1866 (1866-1866) → Tahitian Landscape (1892-1892). La fin de chaque intervalle précède le début du suivant. Aucune année médiane n’est inventée.",
+          "en": "The order is Young Woman with a Water Pitcher (1657-1667) → Young Lady in 1866 (1866-1866) → Tahitian Landscape (1892-1892). Each interval ends before the next begins. No midpoint year is invented."
         },
         "wrongAnswer": {
           "fr": "Cet ordre ne respecte pas tous les intervalles. La borne de fin de chaque œuvre doit précéder la borne de début de la suivante.",
@@ -293,8 +293,8 @@ export const DEFINITIONS = [
             "en": "Check the fields named in the report."
           },
           {
-            "fr": "Les supports et les bornes de dates sont des preuves ; l’absence d’un nom d’artiste n’en est pas une.",
-            "en": "Supports and date bounds are evidence; an absent artist name is not."
+            "fr": "Les supports et les bornes de dates sont des preuves. L’absence d’un nom d’artiste n’en est pas une.",
+            "en": "Supports and date bounds are evidence. An absent artist name is not."
           },
           {
             "fr": "Tahitian Landscape est documenté « Oil on canvas », et non « Oil on wood ». Les deux autres affirmations concordent avec leurs fiches.",
@@ -398,8 +398,8 @@ export const DEFINITIONS = [
           "en": "The torn label"
         },
         "prompt": {
-          "fr": "Réassemblez le cartel de Young Lady in 1866. Le verso contient un renseignement du transport ; aucun résultat d’une autre épreuve n’est nécessaire.",
-          "en": "Reassemble the label for Young Lady in 1866. Its reverse contains a transport detail; no other challenge result is needed."
+          "fr": "Réassemblez le cartel de Young Lady in 1866. Le verso contient un renseignement du transport. Aucun résultat d’une autre épreuve n’est nécessaire.",
+          "en": "Reassemble the label for Young Lady in 1866. Its reverse contains a transport detail. No other challenge result is needed."
         },
         "instructions": {
           "fr": "Le gabarit du musée impose cet ordre : artiste → titre → date → technique. Chaque fragment occupe exactement une de ces fonctions.",
@@ -427,8 +427,8 @@ export const DEFINITIONS = [
           "en": "The label reads: Edouard Manet → Young Lady in 1866 → 1866 → Oil on canvas. All four fragments reproduce the witness record. Its fictional reverse sets the missing work’s lower date bound at 1882."
         },
         "wrongAnswer": {
-          "fr": "Le gabarit n’est pas respecté. L’ordre demandé est artiste, titre, date, puis technique ; le titre peut lui-même contenir une année.",
-          "en": "The template is not satisfied. The required order is artist, title, date, then medium; the title itself may contain a year."
+          "fr": "Le gabarit n’est pas respecté. L’ordre demandé est artiste, titre, date, puis technique. Le titre peut lui-même contenir une année.",
+          "en": "The template is not satisfied. The required order is artist, title, date, then medium. The title itself may contain a year."
         },
         "pieces": [
           {
@@ -439,7 +439,7 @@ export const DEFINITIONS = [
             },
             "text": {
               "fr": "Gabarit éditorial : artiste, titre, date, technique. Verso fictif : « Transfert : pas avant 1882. » Les fragments de face sont des données du Met, sans attribution historique au verso.",
-              "en": "Editorial template: artist, title, date, medium. Fictional reverse: “Transfer: not before 1882.” Front fragments are Met data; the reverse makes no historical claim."
+              "en": "Editorial template: artist, title, date, medium. Fictional reverse: “Transfer: not before 1882.” Front fragments are Met data. The reverse makes no historical claim."
             },
             "provenance": "fictional-document",
             "artworkIds": [
@@ -519,12 +519,12 @@ export const DEFINITIONS = [
       }
     ],
     "conclusion": {
-      "fr": "L’œuvre disparue est Wheat Field with Cypresses de Vincent van Gogh, datée de 1889. C’est une peinture à l’huile sur toile dont l’intervalle commence en 1882 ou après et se termine en 1889 ou avant. Le dessin de Seurat échoue au type et au support, sa peinture est trop ancienne, et l’intervalle de Madame Cézanne dépasse 1889. L’histoire du transfert est une fiction ; l’identification et les dates proviennent du Met.",
-      "en": "The missing work is Vincent van Gogh’s Wheat Field with Cypresses, dated 1889. It is an oil-on-canvas painting whose interval begins in or after 1882 and ends in or before 1889. Seurat’s drawing fails the type and medium clues, his painting is too early, and Madame Cézanne’s interval extends beyond 1889. The transfer story is fictional; the identification and dates come from the Met."
+      "fr": "L’œuvre disparue est Wheat Field with Cypresses de Vincent van Gogh, datée de 1889. C’est une peinture à l’huile sur toile dont l’intervalle commence en 1882 ou après et se termine en 1889 ou avant. Le dessin de Seurat échoue au type et au support, sa peinture est trop ancienne, et l’intervalle de Madame Cézanne dépasse 1889. L’histoire du transfert est une fiction. L’identification et les dates proviennent du Met.",
+      "en": "The missing work is Vincent van Gogh’s Wheat Field with Cypresses, dated 1889. It is an oil-on-canvas painting whose interval begins in or after 1882 and ends in or before 1889. Seurat’s drawing fails the type and medium clues, his painting is too early, and Madame Cézanne’s interval extends beyond 1889. The transfer story is fictional. The identification and dates come from the Met."
     },
     "assistedConclusion": {
-      "fr": "Suivons ensemble les quatre indices. L’œuvre disparue est Wheat Field with Cypresses de Vincent van Gogh, datée de 1889. C’est une peinture à l’huile sur toile dont l’intervalle commence en 1882 ou après et se termine en 1889 ou avant. Le dessin de Seurat échoue au type et au support, sa peinture est trop ancienne, et l’intervalle de Madame Cézanne dépasse 1889. L’histoire du transfert est une fiction ; l’identification et les dates proviennent du Met.",
-      "en": "Let us follow the four clues together. The missing work is Vincent van Gogh’s Wheat Field with Cypresses, dated 1889. It is an oil-on-canvas painting whose interval begins in or after 1882 and ends in or before 1889. Seurat’s drawing fails the type and medium clues, his painting is too early, and Madame Cézanne’s interval extends beyond 1889. The transfer story is fictional; the identification and dates come from the Met."
+      "fr": "Suivons ensemble les quatre indices. L’œuvre disparue est Wheat Field with Cypresses de Vincent van Gogh, datée de 1889. C’est une peinture à l’huile sur toile dont l’intervalle commence en 1882 ou après et se termine en 1889 ou avant. Le dessin de Seurat échoue au type et au support, sa peinture est trop ancienne, et l’intervalle de Madame Cézanne dépasse 1889. L’histoire du transfert est une fiction. L’identification et les dates proviennent du Met.",
+      "en": "Let us follow the four clues together. The missing work is Vincent van Gogh’s Wheat Field with Cypresses, dated 1889. It is an oil-on-canvas painting whose interval begins in or after 1882 and ends in or before 1889. Seurat’s drawing fails the type and medium clues, his painting is too early, and Madame Cézanne’s interval extends beyond 1889. The transfer story is fictional. The identification and dates come from the Met."
     },
     "candidateExplanations": {
       "437655": {
@@ -536,12 +536,12 @@ export const DEFINITIONS = [
         "en": "This work satisfies all four clues: painting, oil on canvas, start in 1889 and end in 1889."
       },
       "334652": {
-        "fr": "Embroidery; The Artist’s Mother est un dessin au crayon Conté, pas une peinture à l’huile sur toile.",
-        "en": "Embroidery; The Artist’s Mother is a Conté-crayon drawing, not an oil-on-canvas painting."
+        "fr": "Embroidery. The Artist’s Mother est un dessin au crayon Conté, pas une peinture à l’huile sur toile.",
+        "en": "Embroidery. The Artist’s Mother is a Conté-crayon drawing, not an oil-on-canvas painting."
       },
       "435876": {
-        "fr": "L’intervalle 1888–1890 de Madame Cézanne dépasse la borne supérieure de 1889.",
-        "en": "Madame Cézanne’s 1888–1890 interval exceeds the upper bound of 1889."
+        "fr": "L’intervalle 1888-1890 de Madame Cézanne dépasse la borne supérieure de 1889.",
+        "en": "Madame Cézanne’s 1888-1890 interval exceeds the upper bound of 1889."
       }
     }
   },
@@ -557,8 +557,8 @@ export const DEFINITIONS = [
       "en": "Scattered sheets. An attribution to restore."
     },
     "briefing": {
-      "fr": "Dans la réserve des estampes japonaises, une feuille manque à l’appel. Une photographie, un erratum et trois rapports d’examen ont été mélangés. Distinguez artistes, dates et formats imprimés pour identifier la feuille. Le scénario et les rapports sont fictifs ; les œuvres et leurs techniques sont documentées par le Met.",
-      "en": "In the Japanese print store, one sheet is missing. A photograph, an erratum and three examination reports have been mixed up. Distinguish artists, dates and printed formats to identify it. The story and reports are fictional; the works and media are documented by the Met."
+      "fr": "Dans la réserve des estampes japonaises, une feuille manque à l’appel. Une photographie, un erratum et trois rapports d’examen ont été mélangés. Distinguez artistes, dates et formats imprimés pour identifier la feuille. Le scénario et les rapports sont fictifs. Les œuvres et leurs techniques sont documentées par le Met.",
+      "en": "In the Japanese print store, one sheet is missing. A photograph, an erratum and three examination reports have been mixed up. Distinguish artists, dates and printed formats to identify it. The story and reports are fictional. The works and media are documented by the Met."
     },
     "introduction": {
       "fr": "Les quatre tables sont ouvertes. Leurs témoins sont indépendants de l’œuvre disparue. Les notices techniques complètes restent consultables pour vos comparaisons.",
@@ -598,8 +598,8 @@ export const DEFINITIONS = [
           "en": "A detail photograph was recovered in the file. Which witness artwork does it belong to?"
         },
         "instructions": {
-          "fr": "Comparez le fragment aux trois reproductions. Sélectionnez une œuvre ; les descriptions visuelles offrent la même information que l’image.",
-          "en": "Compare the fragment with the three reproductions. Select one work; the visual descriptions provide the same information as the image."
+          "fr": "Comparez le fragment aux trois reproductions. Sélectionnez une œuvre. Les descriptions visuelles offrent la même information que l’image.",
+          "en": "Compare the fragment with the three reproductions. Select one work. The visual descriptions provide the same information as the image."
         },
         "witnessIds": [
           37189,
@@ -612,8 +612,8 @@ export const DEFINITIONS = [
             "en": "Compare shapes and objects, not only colours."
           },
           {
-            "fr": "Un large torse aux contours noirs, une épaule arrondie et un bras replié ; une bande rouge longe le bord inférieur.",
-            "en": "A broad torso outlined in black, a rounded shoulder and a bent arm; a red band runs along the lower edge."
+            "fr": "Un large torse aux contours noirs, une épaule arrondie et un bras replié. Une bande rouge longe le bord inférieur.",
+            "en": "A broad torso outlined in black, a rounded shoulder and a bent arm. A red band runs along the lower edge."
           },
           {
             "fr": "Le détail et la description concordent uniquement avec The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō. La note fictive associée livre un indice sur l’œuvre disparue.",
@@ -636,8 +636,8 @@ export const DEFINITIONS = [
               "en": "Indigo envelope"
             },
             "text": {
-              "fr": "Document fictif : « La photographie permet de retrouver la liste de prêt. Pour l’œuvre manquante : Utagawa Hiroshige ; ne pas confondre avec Hiroshige II. » Le fragment est tiré de la reproduction du témoin, et non de la candidate recherchée.",
-              "en": "Fictional document: “The photograph locates the loan list. Missing work: Utagawa Hiroshige; do not confuse with Hiroshige II.” The fragment comes from the witness reproduction, not the missing candidate."
+              "fr": "Document fictif : « La photographie permet de retrouver la liste de prêt. Pour l’œuvre manquante : Utagawa Hiroshige. Ne pas confondre avec Hiroshige II. » Le fragment est tiré de la reproduction du témoin, et non de la candidate recherchée.",
+              "en": "Fictional document: “The photograph locates the loan list. Missing work: Utagawa Hiroshige. Do not confuse with Hiroshige II.” The fragment comes from the witness reproduction, not the missing candidate."
             },
             "provenance": "fictional-document",
             "artworkIds": [
@@ -676,12 +676,12 @@ export const DEFINITIONS = [
             "height": 0.3
           },
           "alt": {
-            "fr": "Un large torse aux contours noirs, une épaule arrondie et un bras replié ; une bande rouge longe le bord inférieur.",
-            "en": "A broad torso outlined in black, a rounded shoulder and a bent arm; a red band runs along the lower edge."
+            "fr": "Un large torse aux contours noirs, une épaule arrondie et un bras replié. Une bande rouge longe le bord inférieur.",
+            "en": "A broad torso outlined in black, a rounded shoulder and a bent arm. A red band runs along the lower edge."
           },
           "observation": {
-            "fr": "Un large torse aux contours noirs, une épaule arrondie et un bras replié ; une bande rouge longe le bord inférieur.",
-            "en": "A broad torso outlined in black, a rounded shoulder and a bent arm; a red band runs along the lower edge."
+            "fr": "Un large torse aux contours noirs, une épaule arrondie et un bras replié. Une bande rouge longe le bord inférieur.",
+            "en": "A broad torso outlined in black, a rounded shoulder and a bent arm. A red band runs along the lower edge."
           }
         },
         "options": [
@@ -723,8 +723,8 @@ export const DEFINITIONS = [
           "en": "Restore the witness works from earliest to latest creation."
         },
         "instructions": {
-          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
-          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
+          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position. La fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
+          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position. Each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
         },
         "witnessIds": [
           37189,
@@ -741,13 +741,13 @@ export const DEFINITIONS = [
             "en": "Start with the work whose end bound is earliest."
           },
           {
-            "fr": "L’ordre est The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790–1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814–1814) → Hiroshige Picture Album (Hiroshige gafu) (1862–1862). La fin de chaque intervalle précède le début du suivant ; aucune année médiane n’est inventée.",
-            "en": "The order is The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790–1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814–1814) → Hiroshige Picture Album (Hiroshige gafu) (1862–1862). Each interval ends before the next begins; no midpoint year is invented."
+            "fr": "L’ordre est The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790-1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814-1814) → Hiroshige Picture Album (Hiroshige gafu) (1862-1862). La fin de chaque intervalle précède le début du suivant. Aucune année médiane n’est inventée.",
+            "en": "The order is The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790-1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814-1814) → Hiroshige Picture Album (Hiroshige gafu) (1862-1862). Each interval ends before the next begins. No midpoint year is invented."
           }
         ],
         "explanation": {
-          "fr": "L’ordre est The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790–1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814–1814) → Hiroshige Picture Album (Hiroshige gafu) (1862–1862). La fin de chaque intervalle précède le début du suivant ; aucune année médiane n’est inventée.",
-          "en": "The order is The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790–1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814–1814) → Hiroshige Picture Album (Hiroshige gafu) (1862–1862). Each interval ends before the next begins; no midpoint year is invented."
+          "fr": "L’ordre est The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790-1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814-1814) → Hiroshige Picture Album (Hiroshige gafu) (1862-1862). La fin de chaque intervalle précède le début du suivant. Aucune année médiane n’est inventée.",
+          "en": "The order is The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō (1790-1793) → Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu) (1814-1814) → Hiroshige Picture Album (Hiroshige gafu) (1862-1862). Each interval ends before the next begins. No midpoint year is invented."
         },
         "wrongAnswer": {
           "fr": "Cet ordre ne respecte pas tous les intervalles. La borne de fin de chaque œuvre doit précéder la borne de début de la suivante.",
@@ -837,17 +837,17 @@ export const DEFINITIONS = [
             "en": "Check the fields named in the report."
           },
           {
-            "fr": "Les supports et les bornes de dates sont des preuves ; l’absence d’un nom d’artiste n’en est pas une.",
-            "en": "Supports and date bounds are evidence; an absent artist name is not."
+            "fr": "Les supports et les bornes de dates sont des preuves. L’absence d’un nom d’artiste n’en est pas une.",
+            "en": "Supports and date bounds are evidence. An absent artist name is not."
           },
           {
-            "fr": "La fiche des lutteurs indique « Woodblock print; ink and color on paper », et non une lithographie. La plaque détachée et le livre sont tous deux documentés à l’encre et en couleurs sur papier. L’erratum fictif fixe la borne supérieure à 1856.",
-            "en": "The wrestlers’ record says “Woodblock print; ink and color on paper”, not lithography. The detached plate and the book are both documented with ink and colour on paper. The fictional erratum sets the upper date bound at 1856."
+            "fr": "La fiche des lutteurs indique « Woodblock print. Ink and color on paper », et non une lithographie. La plaque détachée et le livre sont tous deux documentés à l’encre et en couleurs sur papier. L’erratum fictif fixe la borne supérieure à 1856.",
+            "en": "The wrestlers’ record says “Woodblock print. Ink and color on paper”, not lithography. The detached plate and the book are both documented with ink and colour on paper. The fictional erratum sets the upper date bound at 1856."
           }
         ],
         "explanation": {
-          "fr": "La fiche des lutteurs indique « Woodblock print; ink and color on paper », et non une lithographie. La plaque détachée et le livre sont tous deux documentés à l’encre et en couleurs sur papier. L’erratum fictif fixe la borne supérieure à 1856.",
-          "en": "The wrestlers’ record says “Woodblock print; ink and color on paper”, not lithography. The detached plate and the book are both documented with ink and colour on paper. The fictional erratum sets the upper date bound at 1856."
+          "fr": "La fiche des lutteurs indique « Woodblock print. Ink and color on paper », et non une lithographie. La plaque détachée et le livre sont tous deux documentés à l’encre et en couleurs sur papier. L’erratum fictif fixe la borne supérieure à 1856.",
+          "en": "The wrestlers’ record says “Woodblock print. Ink and color on paper”, not lithography. The detached plate and the book are both documented with ink and colour on paper. The fictional erratum sets the upper date bound at 1856."
         },
         "wrongAnswer": {
           "fr": "Cette affirmation concorde avec un champ documenté. Cherchez celle qui est réfutée par une donnée présente, pas par une information manquante.",
@@ -960,8 +960,8 @@ export const DEFINITIONS = [
             "en": "Ink, colour and paper are shared: look for documentary format."
           },
           {
-            "fr": "« Detached plate » désigne une plaque détachée ; « printed book » sans cette mention désigne le livre complet.",
-            "en": "“Detached plate” means a plate removed from a book; “printed book” without that qualifier identifies the complete book."
+            "fr": "« Detached plate » désigne une plaque détachée. « printed book » sans cette mention désigne le livre complet.",
+            "en": "“Detached plate” means a plate removed from a book. “printed book” without that qualifier identifies the complete book."
           },
           {
             "fr": "Rapport A → les lutteurs : estampe autonome. Rapport B → le village : plaque détachée d’un livre imprimé. Rapport C → l’album Hiroshige : livre imprimé complet. Les trois notices mentionnent l’encre et la couleur sur papier, mais leurs formats documentés diffèrent. Le dernier code désigne le type de notice « Print ».",
@@ -984,8 +984,8 @@ export const DEFINITIONS = [
               "en": "Documentary examination reports"
             },
             "text": {
-              "fr": "Documents fictifs fondés sur les techniques publiées : A, estampe autonome à l’encre et en couleurs sur papier ; B, plaque détachée d’un livre xylographié, mêmes matériaux ; C, livre xylographié complet, mêmes matériaux. Le code de récolement recherché est « Print » dans le champ de type du Met.",
-              "en": "Fictional documents based on published media: A, standalone woodblock print with ink and colour on paper; B, detached plate from a woodblock-printed book, same materials; C, complete woodblock-printed book, same materials. The missing reconciliation code is “Print” in the Met object type field."
+              "fr": "Documents fictifs fondés sur les techniques publiées : A, estampe autonome à l’encre et en couleurs sur papier. B, plaque détachée d’un livre xylographié, mêmes matériaux. C, livre xylographié complet, mêmes matériaux. Le code de récolement recherché est « Print » dans le champ de type du Met.",
+              "en": "Fictional documents based on published media: A, standalone woodblock print with ink and colour on paper. B, detached plate from a woodblock-printed book, same materials. C, complete woodblock-printed book, same materials. The missing reconciliation code is “Print” in the Met object type field."
             },
             "provenance": "fictional-document",
             "artworkIds": [
@@ -1019,8 +1019,8 @@ export const DEFINITIONS = [
           {
             "id": "report-a",
             "text": {
-              "fr": "A · Estampe autonome ; encre et couleurs sur papier.",
-              "en": "A · Standalone woodblock print; ink and colour on paper."
+              "fr": "A · Estampe autonome. Encre et couleurs sur papier.",
+              "en": "A · Standalone woodblock print. Ink and colour on paper."
             },
             "predicate": {
               "field": "medium",
@@ -1031,8 +1031,8 @@ export const DEFINITIONS = [
           {
             "id": "report-b",
             "text": {
-              "fr": "B · Plaque détachée d’un livre xylographié ; encre et couleurs sur papier.",
-              "en": "B · Detached plate from a woodblock-printed book; ink and colour on paper."
+              "fr": "B · Plaque détachée d’un livre xylographié. Encre et couleurs sur papier.",
+              "en": "B · Detached plate from a woodblock-printed book. Ink and colour on paper."
             },
             "predicate": {
               "field": "medium",
@@ -1043,8 +1043,8 @@ export const DEFINITIONS = [
           {
             "id": "report-c",
             "text": {
-              "fr": "C · Livre xylographié complet ; encre et couleurs sur papier.",
-              "en": "C · Complete woodblock-printed book; ink and colour on paper."
+              "fr": "C · Livre xylographié complet. Encre et couleurs sur papier.",
+              "en": "C · Complete woodblock-printed book. Ink and colour on paper."
             },
             "predicate": {
               "field": "medium",
@@ -1075,29 +1075,29 @@ export const DEFINITIONS = [
       }
     ],
     "conclusion": {
-      "fr": "L’œuvre recherchée est Kinryūsan Temple at Asakusa, de la série One Hundred Famous Views of Edo, attribuée à Utagawa Hiroshige et datée de 1856. Son intervalle commence après 1830 et finit au plus tard en 1856 ; son type de notice est « Print ». Azuma Bridge est trop tardif, les deux estampes de Hokusai échouent à l’attribution et à la borne de début. La grande lanterne rouge appartient bien à la reproduction, mais n’a pas servi de preuve de matériaux.",
-      "en": "The missing work is Kinryūsan Temple at Asakusa, from One Hundred Famous Views of Edo, attributed to Utagawa Hiroshige and dated 1856. Its interval starts after 1830 and ends no later than 1856; its record type is “Print”. Azuma Bridge is too late, while both Hokusai prints fail the attribution and lower-date clues. The large red lantern is visible in the reproduction, but it was not used as evidence of materials."
+      "fr": "L’œuvre recherchée est Kinryūsan Temple at Asakusa, de la série One Hundred Famous Views of Edo, attribuée à Utagawa Hiroshige et datée de 1856. Son intervalle commence après 1830 et finit au plus tard en 1856. Son type de notice est « Print ». Azuma Bridge est trop tardif, les deux estampes de Hokusai échouent à l’attribution et à la borne de début. La grande lanterne rouge appartient bien à la reproduction, mais n’a pas servi de preuve de matériaux.",
+      "en": "The missing work is Kinryūsan Temple at Asakusa, from One Hundred Famous Views of Edo, attributed to Utagawa Hiroshige and dated 1856. Its interval starts after 1830 and ends no later than 1856. Its record type is “Print”. Azuma Bridge is too late, while both Hokusai prints fail the attribution and lower-date clues. The large red lantern is visible in the reproduction, but it was not used as evidence of materials."
     },
     "assistedConclusion": {
-      "fr": "Reprenons le classement, les bornes et le type documentaire. L’œuvre recherchée est Kinryūsan Temple at Asakusa, de la série One Hundred Famous Views of Edo, attribuée à Utagawa Hiroshige et datée de 1856. Son intervalle commence après 1830 et finit au plus tard en 1856 ; son type de notice est « Print ». Azuma Bridge est trop tardif, les deux estampes de Hokusai échouent à l’attribution et à la borne de début. La grande lanterne rouge appartient bien à la reproduction, mais n’a pas servi de preuve de matériaux.",
-      "en": "Let us revisit attribution, date bounds and documentary type. The missing work is Kinryūsan Temple at Asakusa, from One Hundred Famous Views of Edo, attributed to Utagawa Hiroshige and dated 1856. Its interval starts after 1830 and ends no later than 1856; its record type is “Print”. Azuma Bridge is too late, while both Hokusai prints fail the attribution and lower-date clues. The large red lantern is visible in the reproduction, but it was not used as evidence of materials."
+      "fr": "Reprenons le classement, les bornes et le type documentaire. L’œuvre recherchée est Kinryūsan Temple at Asakusa, de la série One Hundred Famous Views of Edo, attribuée à Utagawa Hiroshige et datée de 1856. Son intervalle commence après 1830 et finit au plus tard en 1856. Son type de notice est « Print ». Azuma Bridge est trop tardif, les deux estampes de Hokusai échouent à l’attribution et à la borne de début. La grande lanterne rouge appartient bien à la reproduction, mais n’a pas servi de preuve de matériaux.",
+      "en": "Let us revisit attribution, date bounds and documentary type. The missing work is Kinryūsan Temple at Asakusa, from One Hundred Famous Views of Edo, attributed to Utagawa Hiroshige and dated 1856. Its interval starts after 1830 and ends no later than 1856. Its record type is “Print”. Azuma Bridge is too late, while both Hokusai prints fail the attribution and lower-date clues. The large red lantern is visible in the reproduction, but it was not used as evidence of materials."
     },
     "candidateExplanations": {
       "54303": {
-        "fr": "Basket of Flowers with Bamboo Blind est attribué à Hokusai et son intervalle 1799–1810 commence avant 1830 ; son type est « Woodblock print ».",
-        "en": "Basket of Flowers with Bamboo Blind is attributed to Hokusai and its 1799–1810 interval begins before 1830; its type is “Woodblock print”."
+        "fr": "Basket of Flowers with Bamboo Blind est attribué à Hokusai et son intervalle 1799-1810 commence avant 1830. Son type est « Woodblock print ».",
+        "en": "Basket of Flowers with Bamboo Blind is attributed to Hokusai and its 1799-1810 interval begins before 1830. Its type is “Woodblock print”."
       },
       "37282": {
-        "fr": "Azuma Bridge est daté de 1857, au-delà de 1856 ; son type de notice est « Woodblock print ».",
-        "en": "Azuma Bridge is dated 1857, beyond 1856; its record type is “Woodblock print”."
+        "fr": "Azuma Bridge est daté de 1857, au-delà de 1856. Son type de notice est « Woodblock print ».",
+        "en": "Azuma Bridge is dated 1857, beyond 1856. Its record type is “Woodblock print”."
       },
       "56689": {
-        "fr": "Hiroshige, 1856–1856, type « Print » : les quatre indices concordent.",
-        "en": "Hiroshige, 1856–1856, type “Print”: all four clues agree."
+        "fr": "Hiroshige, 1856-1856, type « Print » : les quatre indices concordent.",
+        "en": "Hiroshige, 1856-1856, type “Print”: all four clues agree."
       },
       "54433": {
-        "fr": "Mystical Bird est attribué à Hokusai et son intervalle 1820–1833 commence avant 1830.",
-        "en": "Mystical Bird is attributed to Hokusai and its 1820–1833 interval begins before 1830."
+        "fr": "Mystical Bird est attribué à Hokusai et son intervalle 1820-1833 commence avant 1830.",
+        "en": "Mystical Bird is attributed to Hokusai and its 1820-1833 interval begins before 1830."
       }
     }
   },
@@ -1113,12 +1113,12 @@ export const DEFINITIONS = [
       "en": "Three empty slots. One object omitted from the register."
     },
     "briefing": {
-      "fr": "La réserve des antiquités a fermé avant la fin du récolement. Un objet manque, et les positions d’une vitrine ont été effacées. Une photographie, deux tablettes et un constat permettent de croiser dates, matériaux et ordre de rangement. Le récolement est fictif ; les objets et leurs données proviennent du Met.",
-      "en": "The antiquities store closed before reconciliation was finished. An object is missing and a display layout has been erased. A photograph, two tablets and a condition report let you combine dates, materials and arrangement. The reconciliation is fictional; the objects and data come from the Met."
+      "fr": "La réserve des antiquités a fermé avant la fin du récolement. Un objet manque, et les positions d’une vitrine ont été effacées. Une photographie, deux tablettes et un constat permettent de croiser dates, matériaux et ordre de rangement. Le récolement est fictif. Les objets et leurs données proviennent du Met.",
+      "en": "The antiquities store closed before reconciliation was finished. An object is missing and a display layout has been erased. A photograph, two tablets and a condition report let you combine dates, materials and arrangement. The reconciliation is fictional. The objects and data come from the Met."
     },
     "introduction": {
-      "fr": "Les années anciennes sont négatives. Les énigmes comparent exclusivement les bornes chronologiques documentées ; la datation du musée reste affichée séparément et peut différer. Ces informations ne sont pas interchangeables. Un matériau se vérifie dans la notice, pas dans la couleur de l’image.",
-      "en": "Ancient years are negative. Puzzles compare only the documented chronological bounds; the museum’s date label remains separately displayed and may differ. Do not substitute one for the other. Verify material in the record, not from image colour."
+      "fr": "Les années anciennes sont négatives. Les énigmes comparent exclusivement les bornes chronologiques documentées. La datation du musée reste affichée séparément et peut différer. Ces informations ne sont pas interchangeables. Un matériau se vérifie dans la notice, pas dans la couleur de l’image.",
+      "en": "Ancient years are negative. Puzzles compare only the documented chronological bounds. The museum’s date label remains separately displayed and may differ. Do not substitute one for the other. Verify material in the record, not from image colour."
     },
     "difficulty": {
       "fr": "Avancé",
@@ -1154,8 +1154,8 @@ export const DEFINITIONS = [
           "en": "A detail photograph was recovered in the file. Which witness artwork does it belong to?"
         },
         "instructions": {
-          "fr": "Comparez le fragment aux trois reproductions. Sélectionnez une œuvre ; les descriptions visuelles offrent la même information que l’image.",
-          "en": "Compare the fragment with the three reproductions. Select one work; the visual descriptions provide the same information as the image."
+          "fr": "Comparez le fragment aux trois reproductions. Sélectionnez une œuvre. Les descriptions visuelles offrent la même information que l’image.",
+          "en": "Compare the fragment with the three reproductions. Select one work. The visual descriptions provide the same information as the image."
         },
         "witnessIds": [
           544498,
@@ -1279,8 +1279,8 @@ export const DEFINITIONS = [
           "en": "Restore the witness works from earliest to latest creation."
         },
         "instructions": {
-          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position ; la fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
-          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position; each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
+          "fr": "Consultez les bornes chronologiques documentées, affichées dans le dossier. Déplacez chaque carte à sa position. La fin d’un intervalle doit précéder le début du suivant. Le libellé de date du musée est conservé séparément et peut différer. Les années négatives précèdent notre ère.",
+          "en": "Consult the documented chronological bounds displayed in the dossier. Move each card into position. Each interval must end before the next begins. The museum’s display-date text is retained separately and may differ. Negative years are BCE."
         },
         "witnessIds": [
           544498,
@@ -1297,13 +1297,13 @@ export const DEFINITIONS = [
             "en": "Start with the work whose end bound is earliest."
           },
           {
-            "fr": "L’ordre est Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390–-1352) → Head of King Seti II Wearing the Blue Crown (-1200–-1194) → Torso of a High General (-399–-300). La fin de chaque intervalle précède le début du suivant ; aucune année médiane n’est inventée.",
-            "en": "The order is Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390–-1352) → Head of King Seti II Wearing the Blue Crown (-1200–-1194) → Torso of a High General (-399–-300). Each interval ends before the next begins; no midpoint year is invented."
+            "fr": "L’ordre est Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390--1352) → Head of King Seti II Wearing the Blue Crown (-1200--1194) → Torso of a High General (-399--300). La fin de chaque intervalle précède le début du suivant. Aucune année médiane n’est inventée.",
+            "en": "The order is Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390--1352) → Head of King Seti II Wearing the Blue Crown (-1200--1194) → Torso of a High General (-399--300). Each interval ends before the next begins. No midpoint year is invented."
           }
         ],
         "explanation": {
-          "fr": "L’ordre est Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390–-1352) → Head of King Seti II Wearing the Blue Crown (-1200–-1194) → Torso of a High General (-399–-300). La fin de chaque intervalle précède le début du suivant ; aucune année médiane n’est inventée.",
-          "en": "The order is Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390–-1352) → Head of King Seti II Wearing the Blue Crown (-1200–-1194) → Torso of a High General (-399–-300). Each interval ends before the next begins; no midpoint year is invented."
+          "fr": "L’ordre est Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390--1352) → Head of King Seti II Wearing the Blue Crown (-1200--1194) → Torso of a High General (-399--300). La fin de chaque intervalle précède le début du suivant. Aucune année médiane n’est inventée.",
+          "en": "The order is Sphinx of Amenhotep III, possibly from a Model of a Temple (-1390--1352) → Head of King Seti II Wearing the Blue Crown (-1200--1194) → Torso of a High General (-399--300). Each interval ends before the next begins. No midpoint year is invented."
         },
         "wrongAnswer": {
           "fr": "Cet ordre ne respecte pas tous les intervalles. La borne de fin de chaque œuvre doit précéder la borne de début de la suivante.",
@@ -1393,17 +1393,17 @@ export const DEFINITIONS = [
             "en": "Check the fields named in the report."
           },
           {
-            "fr": "Les supports et les bornes de dates sont des preuves ; l’absence d’un nom d’artiste n’en est pas une.",
-            "en": "Supports and date bounds are evidence; an absent artist name is not."
+            "fr": "Les supports et les bornes de dates sont des preuves. L’absence d’un nom d’artiste n’en est pas une.",
+            "en": "Supports and date bounds are evidence. An absent artist name is not."
           },
           {
-            "fr": "Le sphinx est documenté en faïence, avec les restes d’un tenon en travertin, et non en bronze. La tête est en quartzite avec peinture ; le torse est en métagrauwacke. Aucun nom d’artiste absent n’est utilisé comme preuve.",
-            "en": "The sphinx is documented as faience with remains of a travertine tenon, not bronze. The head is quartzite with paint; the torso is metagraywacke. No absent artist name is used as evidence."
+            "fr": "Le sphinx est documenté en faïence, avec les restes d’un tenon en travertin, et non en bronze. La tête est en quartzite avec peinture. Le torse est en métagrauwacke. Aucun nom d’artiste absent n’est utilisé comme preuve.",
+            "en": "The sphinx is documented as faience with remains of a travertine tenon, not bronze. The head is quartzite with paint. The torso is metagraywacke. No absent artist name is used as evidence."
           }
         ],
         "explanation": {
-          "fr": "Le sphinx est documenté en faïence, avec les restes d’un tenon en travertin, et non en bronze. La tête est en quartzite avec peinture ; le torse est en métagrauwacke. Aucun nom d’artiste absent n’est utilisé comme preuve.",
-          "en": "The sphinx is documented as faience with remains of a travertine tenon, not bronze. The head is quartzite with paint; the torso is metagraywacke. No absent artist name is used as evidence."
+          "fr": "Le sphinx est documenté en faïence, avec les restes d’un tenon en travertin, et non en bronze. La tête est en quartzite avec peinture. Le torse est en métagrauwacke. Aucun nom d’artiste absent n’est utilisé comme preuve.",
+          "en": "The sphinx is documented as faience with remains of a travertine tenon, not bronze. The head is quartzite with paint. The torso is metagraywacke. No absent artist name is used as evidence."
         },
         "wrongAnswer": {
           "fr": "Cette affirmation concorde avec un champ documenté. Cherchez celle qui est réfutée par une donnée présente, pas par une information manquante.",
@@ -1515,8 +1515,8 @@ export const DEFINITIONS = [
             "en": "Combine constraints before placing an object. “Before” means to the left, not necessarily immediately next to it."
           },
           {
-            "fr": "La tête ne peut être première, car le sphinx doit la précéder ; elle ne peut pas être dernière non plus.",
-            "en": "The head cannot be first because the sphinx must precede it; it cannot be last either."
+            "fr": "La tête ne peut être première, car le sphinx doit la précéder. Elle ne peut pas être dernière non plus.",
+            "en": "The head cannot be first because the sphinx must precede it. It cannot be last either."
           },
           {
             "fr": "Le sphinx précède la tête. La tête ne peut être ni dernière ni première : elle est donc au milieu. Le torse, adjacent à la tête, prend la dernière place. L’unique disposition est sphinx → tête → torse. La légende fictive de la dernière case donne la borne de fin minimale −1400.",
@@ -1539,8 +1539,8 @@ export const DEFINITIONS = [
               "en": "Reconciliation layout"
             },
             "text": {
-              "fr": "Document fictif : le sphinx précède la tête ; la tête est à côté du torse ; la tête n’occupe pas la place III. Une fois le plan rétabli, la légende indique : « Objet disparu : fin de datation −1400 ou après. »",
-              "en": "Fictional document: the sphinx precedes the head; the head is next to the torso; the head does not occupy slot III. Once the plan is restored, its legend says: “Missing object: end date −1400 or later.”"
+              "fr": "Document fictif : le sphinx précède la tête. La tête est à côté du torse. La tête n’occupe pas la place III. Une fois le plan rétabli, la légende indique : « Objet disparu : fin de datation −1400 ou après. »",
+              "en": "Fictional document: the sphinx precedes the head. The head is next to the torso. The head does not occupy slot III. Once the plan is restored, its legend says: “Missing object: end date −1400 or later.”"
             },
             "provenance": "fictional-document",
             "artworkIds": [
@@ -1645,17 +1645,17 @@ export const DEFINITIONS = [
       }
     ],
     "conclusion": {
-      "fr": "L’objet disparu est Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, un tube à khôl en faïence. Ses bornes numériques dans l’API du Met sont −1390 et −1352 ; le libellé original du musée est « ca. 1386–1347 BCE ». Les indices du dossier portent explicitement sur les bornes de l’API, pas sur ce libellé. Cobra Head a une borne de fin trop tardive ; le collier et le bracelet de cheville échouent aux bornes ou au matériau exact, qui inclut aussi du lin. Aucun artiste n’est inventé pour les attributions absentes.",
-      "en": "The missing object is Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, a faience kohl tube. Its numeric Met API bounds are −1390 and −1352; the museum’s original display label is “ca. 1386–1347 BCE”. The dossier clues explicitly concern the API bounds, not that label. Cobra Head has an end bound that is too late; the necklace and anklet fail the bounds or exact-medium clues, since their media also include linen. No artist is invented for absent attributions."
+      "fr": "L’objet disparu est Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, un tube à khôl en faïence. Ses bornes numériques dans l’API du Met sont −1390 et −1352. Le libellé original du musée est « ca. 1386-1347 BCE ». Les indices du dossier portent explicitement sur les bornes de l’API, pas sur ce libellé. Cobra Head a une borne de fin trop tardive. Le collier et le bracelet de cheville échouent aux bornes ou au matériau exact, qui inclut aussi du lin. Aucun artiste n’est inventé pour les attributions absentes.",
+      "en": "The missing object is Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, a faience kohl tube. Its numeric Met API bounds are −1390 and −1352. The museum’s original display label is “ca. 1386-1347 BCE”. The dossier clues explicitly concern the API bounds, not that label. Cobra Head has an end bound that is too late. The necklace and anklet fail the bounds or exact-medium clues, since their media also include linen. No artist is invented for absent attributions."
     },
     "assistedConclusion": {
-      "fr": "Suivons ensemble les contraintes du registre. L’objet disparu est Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, un tube à khôl en faïence. Ses bornes numériques dans l’API du Met sont −1390 et −1352 ; le libellé original du musée est « ca. 1386–1347 BCE ». Les indices du dossier portent explicitement sur les bornes de l’API, pas sur ce libellé. Cobra Head a une borne de fin trop tardive ; le collier et le bracelet de cheville échouent aux bornes ou au matériau exact, qui inclut aussi du lin. Aucun artiste n’est inventé pour les attributions absentes.",
-      "en": "Let us follow the register constraints together. The missing object is Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, a faience kohl tube. Its numeric Met API bounds are −1390 and −1352; the museum’s original display label is “ca. 1386–1347 BCE”. The dossier clues explicitly concern the API bounds, not that label. Cobra Head has an end bound that is too late; the necklace and anklet fail the bounds or exact-medium clues, since their media also include linen. No artist is invented for absent attributions."
+      "fr": "Suivons ensemble les contraintes du registre. L’objet disparu est Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, un tube à khôl en faïence. Ses bornes numériques dans l’API du Met sont −1390 et −1352. Le libellé original du musée est « ca. 1386-1347 BCE ». Les indices du dossier portent explicitement sur les bornes de l’API, pas sur ce libellé. Cobra Head a une borne de fin trop tardive. Le collier et le bracelet de cheville échouent aux bornes ou au matériau exact, qui inclut aussi du lin. Aucun artiste n’est inventé pour les attributions absentes.",
+      "en": "Let us follow the register constraints together. The missing object is Kohl Tube Inscribed for Amenhotep III and Princess Sitamun, a faience kohl tube. Its numeric Met API bounds are −1390 and −1352. The museum’s original display label is “ca. 1386-1347 BCE”. The dossier clues explicitly concern the API bounds, not that label. Cobra Head has an end bound that is too late. The necklace and anklet fail the bounds or exact-medium clues, since their media also include linen. No artist is invented for absent attributions."
     },
     "candidateExplanations": {
       "548732": {
-        "fr": "La borne de fin numérique du collier est −1492 dans l’API, avant −1400 ; son libellé musée « ca. 1491–1473 BCE » est conservé séparément. Le matériau inclut une corde de lin.",
-        "en": "The necklace’s numeric API end bound is −1492, before −1400; its museum label “ca. 1491–1473 BCE” is retained separately. Its medium includes linen cord."
+        "fr": "La borne de fin numérique du collier est −1492 dans l’API, avant −1400. Son libellé musée « ca. 1491-1473 BCE » est conservé séparément. Le matériau inclut une corde de lin.",
+        "en": "The necklace’s numeric API end bound is −1492, before −1400. Its museum label “ca. 1491-1473 BCE” is retained separately. Its medium includes linen cord."
       },
       "544121": {
         "fr": "Les bornes API de Cobra Head sont −1400 et −1300 : la fin dépasse −1352. Ne remplacez pas cet intervalle par une année médiane.",

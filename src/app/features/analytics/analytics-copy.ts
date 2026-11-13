@@ -30,7 +30,7 @@ export const ANALYTICS_COPY: Readonly<
     timelineNote:
       'Les segments conservent les intervalles documentés. Le libellé du musée et ses bornes numériques peuvent différer.',
     typesNote:
-      'Œuvres volontairement découvertes. Le type provient de la fiche actuelle du Met ou de sa copie de secours ; une information absente reste non renseignée.',
+      'Œuvres volontairement découvertes. Le type provient de la fiche actuelle du Met ou de sa copie de secours. Une information absente reste non renseignée.',
     candidatesNote:
       'Chaque série suit l’ordre réel des indices de sa propre affaire et leur intersection. Seuls les effectifs sont présentés.',
     starsNote:
@@ -69,7 +69,7 @@ export const ANALYTICS_COPY: Readonly<
     timelineNote:
       'Segments preserve documented intervals. The museum’s date label and numeric bounds may differ.',
     typesNote:
-      'Deliberately discovered artworks. Types come from the current Met record or its backup; absent information remains undocumented.',
+      'Deliberately discovered artworks. Types come from the current Met record or its backup. Absent information remains undocumented.',
     candidatesNote:
       'Each series follows its own case’s actual clue acquisition order and their intersection. Only counts are presented.',
     starsNote:

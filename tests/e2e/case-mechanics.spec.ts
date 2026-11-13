@@ -45,7 +45,7 @@ test('opens the antiquities case first and solves its inventory by keyboard with
   await expect(page.getByRole('heading', { name: 'Affaire résolue', exact: true })).toBeVisible();
   await expect(page.locator('.result-stars')).toContainText('12');
   await expect(page.locator('.conclusion-copy')).toContainText('−1390');
-  await expect(page.locator('.conclusion-copy')).toContainText('1386–1347 BCE');
+  await expect(page.locator('.conclusion-copy')).toContainText('1386-1347 BCE');
 });
 
 test('submits the displayed inventory order after restoring a partial saved arrangement', async ({ page }) => {

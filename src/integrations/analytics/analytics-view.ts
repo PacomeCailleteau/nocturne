@@ -1,3 +1,4 @@
+import { displayText } from '../../app/core/i18n/display-text';
 import { createElement as h, useState, type ChangeEvent, type ReactNode } from 'react';
 import type { Analysis, AnalyticsCase, AnalyticsModel, TimelineDatum } from './analytics-types';
 
@@ -13,7 +14,7 @@ function interval(row: TimelineDatum, model: AnalyticsModel): string {
   if (row.begin === null || row.end === null) return model.copy.unknown;
   return row.begin === row.end
     ? year(row.begin, model)
-    : `${year(row.begin, model)} – ${year(row.end, model)}`;
+    : `${year(row.begin, model)} - ${year(row.end, model)}`;
 }
 
 function table(
@@ -92,7 +93,7 @@ function timelineChart(rows: readonly TimelineDatum[], model: AnalyticsModel): R
         h(
           'g',
           { key: index },
-          h('title', null, `${row.title} · ${interval(row, model)}`),
+          h('title', null, `${displayText(row.title)} · ${interval(row, model)}`),
           h('line', { className: 'grid', x1: 62, x2: 578, y1: y, y2: y }),
           h('line', {
             className: 'mark',
@@ -239,9 +240,9 @@ export function AnalyticsView({ model }: Readonly<{ model: AnalyticsModel }>): R
                 table(
                   [copy.timeline, copy.bounds, copy.museumDate],
                   item.timeline.map((row, index) => [
-                    `${String(index + 1).padStart(2, '0')} · ${row.title}`,
+                    `${String(index + 1).padStart(2, '0')} · ${displayText(row.title)}`,
                     h('span', null, interval(row, model), h('small', null, row.source)),
-                    row.dateLabel ?? copy.unknown,
+                    displayText(row.dateLabel) || copy.unknown,
                   ]),
                   `${copy.timeline} · ${item.title}`,
                 ),
@@ -257,7 +258,7 @@ export function AnalyticsView({ model }: Readonly<{ model: AnalyticsModel }>): R
           { className: 'panel' },
           bars(
             distribution.rows.map((row) => ({
-              label: row.label ?? copy.unknown,
+              label: displayText(row.label) || copy.unknown,
               value: row.count,
             })),
             distribution.sample,
@@ -267,7 +268,7 @@ export function AnalyticsView({ model }: Readonly<{ model: AnalyticsModel }>): R
             table(
               [copy.types, copy.count, copy.source],
               distribution.rows.map((row, index) => [
-                `${String(index + 1).padStart(2, '0')} · ${row.label ?? copy.unknown}`,
+                `${String(index + 1).padStart(2, '0')} · ${displayText(row.label) || copy.unknown}`,
                 String(row.count),
                 h(
                   'span',

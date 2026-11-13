@@ -6,7 +6,7 @@ A responsive investigation game built with Angular and an interactive React obse
 
 ## Run locally
 
-Use **Node.js 24.22.0 and npm 11.19.1**, recorded in `.node-version` and `package.json`. No global Angular CLI, API key, backend or account is required. Activate a compatible Node installation before installing dependencies; the project does not change your global Node version.
+Use **Node.js 24.22.0 and npm 11.19.1**, recorded in `.node-version` and `package.json`. No global Angular CLI, API key, backend or account is required. Activate a compatible Node installation before installing dependencies. The project does not change your global Node version.
 
 ```sh
 npm ci
@@ -34,13 +34,13 @@ All three cases and their four puzzles are open immediately. Follow the suggeste
 
 Each case also includes a recovered image fragment, an interval-based chronology and a contradictory report. Visual fragments have written observation alternatives. Ordering uses earlier/later buttons, and report matching uses native selects. No dragging is required.
 
-- Solve independently for **3 stars**. A nudge or precise hint limits a puzzle to **2**; the explained solution completes it for **1**. Stars freeze at completion, up to 12 per case.
+- Solve independently for **3 stars**. A nudge or precise hint limits a puzzle to **2**. The explained solution completes it for **1**. Stars freeze at completion, up to 12 per case.
 - Wrong puzzle answers and time spent reading do not cost stars.
-- Final identification has two explicit confirmations. A first mistake explains a contradiction; a second provides an assisted resolution. Final assistance does not change puzzle stars.
-- Deliberately inspect a witness record to collect it. Preloading does not add discoveries. Candidate records become inspectable after all four puzzles; the missing work joins the notebook after the conclusion.
+- Final identification has two explicit confirmations. A first mistake explains a contradiction. A second provides an assisted resolution. Final assistance does not change puzzle stars.
+- Deliberately inspect a witness record to collect it. Preloading does not add discoveries. Candidate records become inspectable after all four puzzles. The missing work joins the notebook after the conclusion.
 - Progress, drafts, hints and language are saved in this browser. Replay resets the current attempt while retaining discoveries and the best **whole completed attempt**. Ties prefer an unassisted final, then the older result.
 
-Complete rules remain available from the navigation. A case targets 10–15 minutes, but that duration has not been validated through independent human playtests.
+Complete rules remain available from the navigation. A case targets 10-15 minutes, but that duration has not been validated through independent human playtests.
 
 ## Notebook and observatory
 
@@ -52,7 +52,7 @@ Four interactive SVG analyses include scope controls and accessible value tables
 | --------------------- | ----------------------------------------------------------------------------------------------- |
 | Timeline              | Documented intervals, only after that case's chronology is completed in the current attempt     |
 | Artwork types         | Actual normalized types of intentionally discovered works, including unknowns and source counts |
-| Compatible candidates | Intersections in actual earned-clue order; no candidate identities are transferred to React     |
+| Compatible candidates | Intersections in actual earned-clue order. No candidate identities are transferred to React     |
 | Stars by puzzle       | Frozen earned stars and unfinished puzzles for the current attempt                              |
 
 Aggregated timelines gate each case independently. Replay closes that case's timeline and resets its clue history and stars while retaining notebook discoveries. Scope, sample size and source information accompany the analyses. Tables provide detailed alternatives to graphics.
@@ -65,15 +65,15 @@ The nominal source is the [Met Collection API](https://metmuseum.github.io/):
 GET https://collectionapi.metmuseum.org/public/collection/v1/objects/{id}
 ```
 
-Opening a case, eligible artwork, notebook or eligible analysis requests the necessary records with Angular `HttpClient`. A shared session cache deduplicates records and limits concurrency to four requests. The home page uses local witness reproductions and does not download the collection. Search was used to author the bounded corpus; runtime does not need global search.
+Opening a case, eligible artwork, notebook or eligible analysis requests the necessary records with Angular `HttpClient`. A shared session cache deduplicates records and limits concurrency to four requests. The home page uses local witness reproductions and does not download the collection. Search was used to author the bounded corpus. Runtime does not need global search.
 
 Responses feed displayed titles, attribution, dates, materials, detail pages, notebook search and analytics. The requests are not decorative. A record has a 12-second timeout. Failed requests or unusable records activate that work's sourced backup from **2026-10-16**, visibly dated with a retry action. A successful retry restores the live record without changing progress. An absent optional field stays unknown rather than silently borrowing a backup value.
 
 Puzzle constraints depend on reviewed facts. If a live record changes a critical fact, the puzzle evidence explicitly uses the dated reference consistently across documents, clue intersections and timeline. Artwork detail still exposes the current museum record. Pending requests identify reference facts as such. This avoids treating a catalogue edit or network error as a player's mistake.
 
-Images are separate resources: available live reproductions are preferred once a live record loads; optimized local public-domain copies preserve continuity and are identified when used as fallback. If both image sources fail, a visible missing-image state remains.
+Images are separate resources: available live reproductions are preferred once a live record loads. Optimized local public-domain copies preserve continuity and are identified when used as fallback. If both image sources fail, a visible missing-image state remains.
 
-Museum display dates (`objectDate`) and numeric bounds (`objectBeginDate`, `objectEndDate`) remain separate. Some ancient records have differing display wording and numeric ranges. Chronologies compare numeric intervals, never parse an approximate label or invent an exact year. Negative bounds represent BCE years. Missing artist names are not inferred. Metadata remains in its source language; translated game documents are editorial writing, and fictional reports are visibly identified.
+Museum display dates (`objectDate`) and numeric bounds (`objectBeginDate`, `objectEndDate`) remain separate. Some ancient records have differing display wording and numeric ranges. Chronologies compare numeric intervals, never parse an approximate label or invent an exact year. Negative bounds represent BCE years. Missing artist names are not inferred. Metadata remains in its source language. Translated game documents are editorial writing, and fictional reports are visibly identified.
 
 ## Architecture
 
@@ -82,16 +82,16 @@ Museum display dates (`objectDate`) and numeric bounds (`objectBeginDate`, `obje
 | `src/app/domain`             | Typed definitions, puzzle predicates, deterministic transitions and scoring |
 | `src/app/data/cases`         | Three bilingual cases and the reviewed 21-work corpus                       |
 | `src/app/core/met`           | HTTP client, normalization, bounded cache and evidence provenance           |
-| `src/app/core/game`          | Angular Signals store; one owner for game state                             |
+| `src/app/core/game`          | Angular Signals store. One owner for game state                             |
 | `src/app/core/persistence`   | Versioned save validation and synchronous persistence                       |
 | `src/app/core/i18n`          | Typed runtime dictionaries and language selection                           |
 | `src/app/features`           | Routed case, puzzle, artwork, notebook and analytics views                  |
 | `src/integrations/analytics` | React presentation behind `nocturne-analytics`                              |
 | `public/artworks`            | Optimized reproductions, fragments and source manifest                      |
 
-Angular 22.2.3 standalone components, strict TypeScript and hash routing form the application. React 19.3.1 owns chart selection, scope and table visibility. Angular passes an immutable, disclosure-filtered DTO through a custom-element property; React receives neither game mutation methods nor puzzle answers. Its bundle loads only on entering analytics. Shadow DOM isolates styles; disconnecting unmounts the React root, and returning mounts a fresh root.
+Angular 22.2.3 standalone components, strict TypeScript and hash routing form the application. React 19.3.1 owns chart selection, scope and table visibility. Angular passes an immutable, disclosure-filtered DTO through a custom-element property. React receives neither game mutation methods nor puzzle answers. Its bundle loads only on entering analytics. Shadow DOM isolates styles. Disconnecting unmounts the React root, and returning mounts a fresh root.
 
-There is no server, account, tracker, leaderboard, generated puzzle system or exported save format. Application source and bundled references can be inspected. Disclosure rules protect ordinary navigation from spoilers; they are not a security boundary against source inspection.
+There is no server, account, tracker, leaderboard, generated puzzle system or exported save format. Application source and bundled references can be inspected. Disclosure rules protect ordinary navigation from spoilers. They are not a security boundary against source inspection.
 
 ## Verification
 
@@ -104,9 +104,9 @@ npm exec playwright install chromium
 npm run test:e2e -- --workers=2
 ```
 
-Linux CI installs browser/system dependencies with `npm exec playwright install --with-deps chromium`. The workflow runs installation, lint, production compilation, unit/integration tests, assets and Chromium desktop/mobile journeys against the compiled production preview, retaining failure screenshots and traces. Local journeys use the development server; setting `CI=true` requires building first and uses the production preview. No secret is required.
+Linux CI installs browser/system dependencies with `npm exec playwright install --with-deps chromium`. The workflow runs installation, lint, production compilation, unit/integration tests, assets and Chromium desktop/mobile journeys against the compiled production preview, retaining failure screenshots and traces. Local journeys use the development server. Setting `CI=true` requires building first and uses the production preview. No secret is required.
 
-Tests cover unique solutions and clue orders, uncertain chronology, scoring, idempotent final confirmation, whole-attempt best results, save recovery, HTTP failures/retries, source drift, language retention, all six mechanisms, all three conclusions, replay, React lifecycle/property integration and disclosure gates. Playwright controls external responses for reproducibility. Accessibility checks combine axe scans, keyboard/focus assertions, enlarged text, reduced motion and responsive layouts; they do not certify complete accessibility or replace human usability testing.
+Tests cover unique solutions and clue orders, uncertain chronology, scoring, idempotent final confirmation, whole-attempt best results, save recovery, HTTP failures/retries, source drift, language retention, all six mechanisms, all three conclusions, replay, React lifecycle/property integration and disclosure gates. Playwright controls external responses for reproducibility. Accessibility checks combine axe scans, keyboard/focus assertions, enlarged text, reduced motion and responsive layouts. They do not certify complete accessibility or replace human usability testing.
 
 Check the external service separately:
 
@@ -135,10 +135,12 @@ Cases, characters, reports and missing-work scenarios are fictional. No real mus
 
 The main challenges were coherent uncertain dates, puzzles solvable from their documents, state retention across languages/replay and a real second framework without shared business authority or answer leakage. Reviewed critical fields and a single evidence projection keep puzzles and analyses consistent. Stable identifiers keep translations independent from validation. An immutable DTO and lifecycle tests define the Angular/React boundary.
 
-Progress is browser-local. Clearing storage, changing browsers or opening a different origin starts a separate save. If storage fails, a visible notice explains that play continues only in memory. Museum records/images depend on an external service; dated backups preserve play but do not guarantee a complete offline installation. Human timing, screen-reader evaluation and broader browser/device testing remain useful follow-up validation.
+Progress is browser-local. Clearing storage, changing browsers or opening a different origin starts a separate save. If storage fails, a visible notice explains that play continues only in memory. Museum records/images depend on an external service. Dated backups preserve play but do not guarantee a complete offline installation. Human timing, screen-reader evaluation and broader browser/device testing remain useful follow-up validation.
 
 ## AI assistance
 
-OpenAI Codex assisted throughout: analysing assignment and assessment material, comparing concepts and visual directions, structuring scope, checking official technical sources, curating museum records, writing bilingual fictional cases, implementing Angular/React and CSS, authoring tests/CI, running local verification, reviewing changes and writing this README. Compound Engineering skills structured brainstorming, planning, implementation and review. Additional AI reviewers examined bounded planning/code changes; the primary agent checked findings before integration.
+The project was developed feature by feature with OpenAI Codex using the GPT-6.1 Sol model. For each feature, the project owner reviewed the generated code and tested the functionality before continuing. The owner also selected the concept, atmosphere, interaction and scoring rules, languages, scope and publication choices.
 
-The project owner selected the concept, atmosphere, interaction/scoring rules, languages, scope and publication choices. Angular CLI generated the initial configuration. Museum metadata and images come from the cited sources, not AI image generation. Automated tests and agent-operated browser checks are implementation evidence, not independent human playtests or accessibility certification.
+Codex assisted with assignment analysis, concept and visual proposals, planning, technical research, museum record selection, bilingual fictional cases, Angular and React implementation, styling, tests, CI and documentation. Compound Engineering skills structured brainstorming, planning, implementation and review. Additional AI reviewers examined bounded planning and code changes, and the primary agent checked their findings before integration.
+
+Angular CLI generated the initial configuration. Museum metadata and images come from the cited sources. No AI image generation was used. The owner's functional testing complements automated tests and agent-operated browser checks. Independent timed playtests and a complete accessibility evaluation have not been carried out.

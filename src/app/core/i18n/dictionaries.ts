@@ -41,7 +41,7 @@ export const FR = {
   labelEmpty: 'Les fragments que vous choisissez prendront place ici.',
   matchTheMaterials: 'Trois rapports. Trois supports.',
   materialControls:
-    'Associez chaque rapport à une œuvre. Choisir une œuvre déjà attribuée échange les deux associations ; vous pouvez aussi laisser un rapport vide.',
+    'Associez chaque rapport à une œuvre. Choisir une œuvre déjà attribuée échange les deux associations. Vous pouvez aussi laisser un rapport vide.',
   reportUnassigned: 'Une œuvre attend d’être associée à ce rapport.',
   restoreTheInventory: 'Chaque objet à sa place.',
   inventoryControls:
@@ -253,7 +253,7 @@ export const EN = {
   labelEmpty: 'Your chosen fragments will take their places here.',
   matchTheMaterials: 'Three reports. Three formats.',
   materialControls:
-    'Match each report to an artwork. Choosing an artwork already assigned swaps the two matches; you can also leave a report empty.',
+    'Match each report to an artwork. Choosing an artwork already assigned swaps the two matches. You can also leave a report empty.',
   reportUnassigned: 'An artwork is waiting to be matched with this report.',
   restoreTheInventory: 'Every object in its place.',
   inventoryControls:
@@ -288,7 +288,7 @@ export const EN = {
   puzzleLabel: 'Puzzle',
   recommendedOrder: 'Suggested order, free exploration',
   progress: '{completed} of {total} puzzles complete',
-  estimatedDuration: 'About {min}–{max} min',
+  estimatedDuration: 'About {min}-{max} min',
   stars: '{count} stars',
   starsOutOf: '{count} of {total} stars',
   mastery: 'Mastery',

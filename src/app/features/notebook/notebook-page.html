@@ -48,10 +48,14 @@
             ><div class="notebook-artwork-image"><app-artwork-image [artworkId]="item.id" /></div>
             <div class="notebook-artwork-copy">
               @if (item.record.artwork; as artwork) {
-                <p class="eyebrow">{{ artwork.objectName || locale.t('unknown') }}</p>
-                <h3>{{ artwork.title || locale.t('unknown') }}</h3>
-                <p>{{ artwork.artistDisplayName || locale.t('unknown') }}</p>
-                <span class="subtle">{{ artwork.objectDate || locale.t('unknown') }}</span
+                <p class="eyebrow">
+                  {{ locale.display(artwork.objectName || locale.t('unknown')) }}
+                </p>
+                <h3>{{ locale.display(artwork.title || locale.t('unknown')) }}</h3>
+                <p>{{ locale.display(artwork.artistDisplayName || locale.t('unknown')) }}</p>
+                <span class="subtle">{{
+                  locale.display(artwork.objectDate || locale.t('unknown'))
+                }}</span
                 ><span class="source-status">{{
                   locale.t(
                     item.record.provenance?.kind === 'live' ? 'sourceLive' : 'sourceFallback',

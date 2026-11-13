@@ -19,7 +19,11 @@
         <option value="">{{ locale.t('chooseOneArtwork') }}</option>
         @for (item of puzzle().items; track item.id) {
           <option [value]="item.id">
-            {{ evidence().byId.get(item.artworkId)?.facts?.title || locale.t('unknown') }}
+            {{
+              locale.display(
+                evidence().byId.get(item.artworkId)?.facts?.title || locale.t('unknown')
+              )
+            }}
           </option>
         }
       </select>
@@ -29,7 +33,7 @@
           <app-artwork-image [artworkId]="artworkId" [compact]="true" />
           <dl>
             <dt>{{ locale.t('medium') }}</dt>
-            <dd>{{ facts.medium || locale.t('unknown') }}</dd>
+            <dd>{{ locale.display(facts.medium || locale.t('unknown')) }}</dd>
           </dl>
         </div>
       } @else {

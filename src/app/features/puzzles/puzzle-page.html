@@ -148,16 +148,16 @@
                 ><app-artwork-image [artworkId]="id" [compact]="true"
               /></a>
               <div>
-                <h3>{{ item.facts.title || locale.t('unknown') }}</h3>
+                <h3>{{ locale.display(item.facts.title || locale.t('unknown')) }}</h3>
                 <dl class="compact-facts">
                   <dt>{{ locale.t('artist') }}</dt>
-                  <dd>{{ item.facts.artistDisplayName || locale.t('unknown') }}</dd>
+                  <dd>{{ locale.display(item.facts.artistDisplayName || locale.t('unknown')) }}</dd>
                   <dt>{{ locale.t('date') }}</dt>
-                  <dd>{{ item.facts.objectDate || locale.t('unknown') }}</dd>
+                  <dd>{{ locale.display(item.facts.objectDate || locale.t('unknown')) }}</dd>
                   <dt>{{ locale.t('numericDates') }}</dt>
-                  <dd>{{ item.facts.objectBeginDate }} — {{ item.facts.objectEndDate }}</dd>
+                  <dd>{{ item.facts.objectBeginDate }} - {{ item.facts.objectEndDate }}</dd>
                   <dt>{{ locale.t('medium') }}</dt>
-                  <dd>{{ item.facts.medium || locale.t('unknown') }}</dd>
+                  <dd>{{ locale.display(item.facts.medium || locale.t('unknown')) }}</dd>
                 </dl>
                 <app-source-status [evidence]="item" /><a
                   class="text-button"

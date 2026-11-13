@@ -33,7 +33,7 @@ test('analytics uses current API types and unknowns and keeps the React selectio
   await expect(analytics.getByRole('heading', { name: 'Artwork types', exact: true })).toBeVisible();
   await expect(analytics.getByRole('combobox')).toHaveValue('the-silent-frame');
   await expect(analytics.locator('table')).toContainText('Not documented');
-  await expect(page).toHaveTitle('The observatory — Nocturne');
+  await expect(page).toHaveTitle('The observatory - Nocturne');
   const values = analytics.getByRole('button', { name: 'Hide the values' });
   await values.focus();
   await page.keyboard.press('Enter');
@@ -53,7 +53,7 @@ test('aggregate timelines filter each case before transfer and replay closes the
   await page.goto('/#/analytics');
   const analytics = page.locator('nocturne-analytics');
   await expect(analytics.locator('table')).toHaveCount(1);
-  await expect(analytics.locator('table')).toContainText('1657 – 1667');
+  await expect(analytics.locator('table')).toContainText('1657 - 1667');
   await expect(analytics.getByRole('img')).toHaveCount(1);
   const transferred = await analytics.evaluate((element) => JSON.stringify((element as AnalyticsElement).model));
   expect(transferred).not.toContain(ARTWORK_BY_ID.get(CASES[1].witnessIds[0])!.title);
@@ -113,9 +113,9 @@ test('ancient intervals remain readable and keep distinct museum date labels', a
   const analytics = page.locator('nocturne-analytics');
   await analytics.getByRole('combobox').selectOption(definition.id);
   const row = analytics.getByRole('row').filter({ hasText: 'Sphinx of Amenhotep III' });
-  await expect(row).toContainText('1390 av. J.-C. – 1352 av. J.-C.');
-  await expect(row).toContainText('ca. 1386–1347 BCE');
+  await expect(row).toContainText('1390 av. J.-C. - 1352 av. J.-C.');
+  await expect(row).toContainText('ca. 1386-1347 BCE');
   await page.getByTestId('language-toggle').click();
-  await expect(row).toContainText('1390 BCE – 1352 BCE');
+  await expect(row).toContainText('1390 BCE - 1352 BCE');
   await expect(analytics.getByRole('img')).toBeVisible();
 });

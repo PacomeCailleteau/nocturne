@@ -68,9 +68,11 @@
             <app-artwork-image [artworkId]="definition.coverArtworkId" [eager]="true" />
           </div>
           <p class="gallery-credit">
-            {{ evidence()?.byId.get(definition.coverArtworkId)?.facts?.title
+            {{ locale.display(evidence()?.byId.get(definition.coverArtworkId)?.facts?.title)
             }}<span>{{
-              evidence()?.byId.get(definition.coverArtworkId)?.facts?.artistDisplayName
+              locale.display(
+                evidence()?.byId.get(definition.coverArtworkId)?.facts?.artistDisplayName
+              )
             }}</span>
           </p>
         </div>
@@ -173,15 +175,15 @@
                 ><app-artwork-image [artworkId]="id"
               /></a>
               <div class="candidate-copy">
-                <h3>{{ item?.facts?.title }}</h3>
-                <p>{{ item?.facts?.artistDisplayName || locale.t('unknown') }}</p>
+                <h3>{{ locale.display(item?.facts?.title) }}</h3>
+                <p>{{ locale.display(item?.facts?.artistDisplayName || locale.t('unknown')) }}</p>
                 <dl class="compact-facts">
                   <dt>{{ locale.t('numericDates') }}</dt>
-                  <dd>{{ item?.facts?.objectBeginDate }} — {{ item?.facts?.objectEndDate }}</dd>
+                  <dd>{{ item?.facts?.objectBeginDate }} - {{ item?.facts?.objectEndDate }}</dd>
                   <dt>{{ locale.t('medium') }}</dt>
-                  <dd>{{ item?.facts?.medium || locale.t('unknown') }}</dd>
+                  <dd>{{ locale.display(item?.facts?.medium || locale.t('unknown')) }}</dd>
                   <dt>{{ locale.t('objectType') }}</dt>
-                  <dd>{{ item?.facts?.objectName || locale.t('unknown') }}</dd>
+                  <dd>{{ locale.display(item?.facts?.objectName || locale.t('unknown')) }}</dd>
                 </dl>
                 <app-source-status [evidence]="item" /><a
                   class="text-button"
@@ -204,7 +206,7 @@
     <app-dialog #confirmation [heading]="locale.t('confirmationTitle')"
       ><p>{{ locale.t('confirmationText') }}</p>
       @if (selected(); as selectedId) {
-        <h3>{{ evidence()?.byId.get(selectedId)?.facts?.title }}</h3>
+        <h3>{{ locale.display(evidence()?.byId.get(selectedId)?.facts?.title) }}</h3>
       }
       <div class="dialog-actions">
         <button class="button secondary" type="button" (click)="confirmation.close()">

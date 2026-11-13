@@ -38,8 +38,8 @@ export class PuzzleRenderer {
       return {
         id: item.id,
         artworkId: item.artworkId,
-        label: facts.title ?? this.locale.t('unknown'),
-        detail: `${this.locale.t('numericDates')} : ${facts.objectBeginDate ?? '?'} — ${facts.objectEndDate ?? '?'}`,
+        label: this.locale.display(facts.title) || this.locale.t('unknown'),
+        detail: `${this.locale.t('numericDates')} : ${facts.objectBeginDate ?? '?'} - ${facts.objectEndDate ?? '?'}`,
       };
     });
   });

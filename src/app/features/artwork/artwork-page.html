@@ -9,8 +9,8 @@
             THE METROPOLITAN MUSEUM OF ART <span class="fine-line"></span>
             {{ locale.t('artworkDetails') }}
           </p>
-          <h1>{{ artwork.title || locale.t('unknown') }}</h1>
-          <p class="lead">{{ artwork.artistDisplayName || locale.t('unknown') }}</p>
+          <h1>{{ locale.display(artwork.title || locale.t('unknown')) }}</h1>
+          <p class="lead">{{ locale.display(artwork.artistDisplayName || locale.t('unknown')) }}</p>
         </div>
       </header>
       <div class="artwork-detail-layout">
@@ -22,8 +22,12 @@
             </button>
           </div>
           <p class="small-print">
-            {{ artwork.creditLine || locale.t('unknown') }} ·
-            {{ artwork.isPublicDomain ? locale.t('publicDomain') : locale.t('unknown') }}
+            {{ locale.display(artwork.creditLine || locale.t('unknown')) }} ·
+            {{
+              locale.display(
+                artwork.isPublicDomain ? locale.t('publicDomain') : locale.t('unknown')
+              )
+            }}
           </p>
         </div>
         <div class="artwork-detail-copy">
@@ -48,13 +52,13 @@
             @for (field of fields; track field.key) {
               <div>
                 <dt>{{ locale.t(field.label) }}</dt>
-                <dd>{{ artwork[field.key] || locale.t('unknown') }}</dd>
+                <dd>{{ locale.display(artwork[field.key]) || locale.t('unknown') }}</dd>
               </div>
             }
             <div>
               <dt>{{ locale.t('numericDates') }}</dt>
               <dd>
-                {{ artwork.objectBeginDate ?? locale.t('unknown') }} —
+                {{ artwork.objectBeginDate ?? locale.t('unknown') }} -
                 {{ artwork.objectEndDate ?? locale.t('unknown') }}
               </dd>
             </div>
@@ -71,7 +75,7 @@
           }
         </div>
       </div>
-      <app-dialog #zoom [heading]="artwork.title || locale.t('artworkDetails')"
+      <app-dialog #zoom [heading]="locale.display(artwork.title) || locale.t('artworkDetails')"
         ><div class="zoom-art"><app-artwork-image [artworkId]="id()" [eager]="true" /></div
       ></app-dialog>
     } @else {

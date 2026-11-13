@@ -38,6 +38,6 @@ describe('Material matching interaction', () => {
     await fixture.whenStable();
     expect(fixture.componentInstance.draft()?.['report-a']).toBe('work-37189');
     expect(fixture.componentInstance.draft()?.['report-b']).toBe('');
-    expect((fixture.nativeElement as HTMLElement).textContent).toContain('Woodblock print; ink and color on paper');
+    expect((fixture.nativeElement as HTMLElement).textContent).toContain('Woodblock print, ink and color on paper');
   });
 });

@@ -30,7 +30,9 @@
         >
           <span class="choice-number">0{{ index + 1 }}</span
           ><app-artwork-image [artworkId]="option.artworkId" /><span class="witness-choice-copy"
-            ><strong>{{ evidence().byId.get(option.artworkId)?.facts?.title }}</strong
+            ><strong>{{
+              locale.display(evidence().byId.get(option.artworkId)?.facts?.title)
+            }}</strong
             ><small>{{ locale.pick(option.observation) }}</small
             ><span class="choice-radio" aria-hidden="true">{{
               draft() === option.id ? '●' : '○'

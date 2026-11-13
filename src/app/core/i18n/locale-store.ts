@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Injectable, inject, signal } from '@angular/core';
 import type { Language, Localized } from '../../domain/case-definition';
 import { ProgressStorage } from '../persistence/progress-storage';
+import { displayText } from './display-text';
 import { EN, FR } from './dictionaries';
 import type { TranslationKey } from './dictionaries';
 
@@ -27,12 +28,16 @@ export class LocaleStore {
     this.setLanguage(this.language() === 'fr' ? 'en' : 'fr');
   }
 
+  readonly display = displayText;
+
   pick(value: Localized): string {
-    return value[this.language()];
+    return displayText(value[this.language()]);
   }
 
   t(key: TranslationKey, parameters: Readonly<Record<string, string | number>> = {}): string {
     const dictionary = this.language() === 'fr' ? FR : EN;
-    return dictionary[key].replace(/\{(\w+)\}/g, (placeholder: string, name: string) => String(parameters[name] ?? placeholder));
+    return dictionary[key].replace(/\{(\w+)\}/g, (placeholder: string, name: string) =>
+      String(parameters[name] ?? placeholder),
+    );
   }
 }

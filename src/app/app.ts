@@ -41,7 +41,7 @@ export class App {
       });
     effect(() => {
       const label = this.pageTitle();
-      document.title = `${label} — Nocturne`;
+      document.title = `${label} - Nocturne`;
     });
   }
 
